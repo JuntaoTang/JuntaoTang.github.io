@@ -135,10 +135,9 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow"><span /> Undergraduate researcher · Nanjing University</p>
             <h1>Jun-Tao<br /><em>Tang</em></h1>
-            <p className="hero-lede">I study how intelligent systems learn, adapt, and generate across modalities.</p>
+            <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of Dr. Da-Wei Zhou. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
 
             <div className="profile-blocks">
-              <div className="profile-block"><span>Research experience</span><p>Research intern, LAMDA Group<br />Supervised by Dr. Da-Wei Zhou · 2025—now</p></div>
               <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Generative Vision <small>(Generative AI)</small></span></div></div>
             </div>
 
@@ -163,6 +162,14 @@ export default function Home() {
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
           <div className="section-heading publication-heading"><div><p className="section-kicker">Selected work</p><h2 id="publications-title">Publications &amp; preprints</h2></div><span className="section-count">03 papers · 02 preprints</span></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
+        </section>
+
+        <section className="awards-section" aria-labelledby="awards-title">
+          <div className="section-heading"><div><p className="section-kicker">Recognition</p><h2 id="awards-title">Scholarships</h2></div></div>
+          <div className="awards-list">
+            <div className="award-item"><span className="award-year">2025</span><h3>BYD Scholarship</h3></div>
+            <div className="award-item"><span className="award-year">2024</span><h3>First-Class Scholarship</h3></div>
+          </div>
         </section>
 
         <footer className="site-footer"><div><span className="footer-mark">JT</span><span>Jun-Tao Tang</span></div><p>Multimodal learning · Nanjing University</p><a href="mailto:juntao.tang@smail.nju.edu.cn">juntao.tang@smail.nju.edu.cn ↗</a></footer>
