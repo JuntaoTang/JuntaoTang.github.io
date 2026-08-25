@@ -1,31 +1,38 @@
 import type { ReactNode } from 'react';
 
-type Author = { name: string; me?: boolean };
+type Author = { name: string; me?: boolean; equal?: boolean };
 
 type Paper = {
-  shortLabel: string;
+  label: string;
+  status: string;
   title: string;
   authors: Author[];
   venueFull: string;
   venueShort: string;
   image: string;
   preprint?: boolean;
+  showEqual?: boolean;
+  contributionNote?: string;
 };
 
 const papers: Paper[] = [
   {
-    shortLabel: 'SAME',
+    label: 'ICML',
+    status: 'Accepted · 2026',
     title: 'SAME: Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning',
     authors: [
-      { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' },
+      { name: 'Zhen-Hao Xie', equal: true }, { name: 'Jun-Tao Tang', me: true, equal: true }, { name: 'Yu-Cheng Shi' },
       { name: 'Han-Jia Ye' }, { name: 'De-Chuan Zhan' }, { name: 'Da-Wei Zhou' },
     ],
     venueFull: 'International Conference on Machine Learning.',
     venueShort: 'ICML 2026',
     image: '/assets/papers/same.png',
+    showEqual: true,
+    contributionNote: '* Equal contribution · Jun-Tao Tang is the second co-first author.',
   },
   {
-    shortLabel: 'CRAM',
+    label: 'EMNLP',
+    status: 'Main conference · 2026',
     title: 'CRAM: Centroid-Routing and Adaptive MoE for Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Jun-Tao Tang', me: true }, { name: 'Zhen-Hao Xie' }, { name: 'Yu-Cheng Shi' }, { name: 'Da-Wei Zhou' },
@@ -35,7 +42,8 @@ const papers: Paper[] = [
     image: '/assets/papers/cram.png',
   },
   {
-    shortLabel: 'AQHA',
+    label: 'ACM MM',
+    status: 'Accepted · 2026',
     title: 'Active Quality Assessment and Hierarchical Aggregation for Incomplete Multi-View Multi-Label Classification',
     authors: [
       { name: 'Kewei Wen' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Bob Zhang' }, { name: 'Yanghao Zhou' },
@@ -46,7 +54,8 @@ const papers: Paper[] = [
     image: '/assets/papers/area.png',
   },
   {
-    shortLabel: 'ProtoAda',
+    label: 'Preprint',
+    status: 'Preprint · 2026',
     title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' },
@@ -57,7 +66,8 @@ const papers: Paper[] = [
     preprint: true,
   },
   {
-    shortLabel: 'Prism',
+    label: 'Preprint',
+    status: 'Preprint · 2026',
     title: 'Prism: A Plug-in Reproducible Infrastructure for Scalable Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' },
@@ -69,13 +79,13 @@ const papers: Paper[] = [
   },
 ];
 
-function AuthorLine({ authors, dark = false }: { authors: Author[]; dark?: boolean }) {
+function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
     <p className={dark ? 'authors authors-dark' : 'authors'}>
       {authors.map((author, index) => (
         <span key={author.name}>
           {index > 0 && ', '}
-          <span className={author.me ? 'author-me' : undefined}>{author.name}</span>
+          <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal ? '*' : ''}</span>
         </span>
       ))}
     </p>
@@ -94,12 +104,13 @@ function VenueLine({ paper, dark = false }: { paper: Paper; dark?: boolean }) {
 function PaperCard({ paper }: { paper: Paper }) {
   return (
     <article className="paper-card">
-      <div className="paper-media"><img src={paper.image} alt={`${paper.shortLabel} paper overview`} loading="lazy" /></div>
+      <div className="paper-media"><img src={paper.image} alt={`${paper.label} paper overview`} loading="lazy" /></div>
       <div className="paper-body">
-        <div className="paper-topline"><span className="paper-short">{paper.shortLabel}</span><span className="paper-status">{paper.preprint ? 'Preprint' : 'Conference paper'}</span></div>
+        <div className="paper-topline"><span className="paper-short">{paper.label}</span><span className="paper-status">{paper.status}</span></div>
         <h3>{paper.title}</h3>
-        <AuthorLine authors={paper.authors} />
+        <AuthorLine authors={paper.authors} showEqual={paper.showEqual} />
         <VenueLine paper={paper} />
+        {paper.contributionNote && <p className="contribution-note">{paper.contributionNote}</p>}
       </div>
     </article>
   );
@@ -134,7 +145,7 @@ export default function Home() {
 
           <div className="hero-copy">
             <p className="eyebrow"><span /> Undergraduate researcher · Nanjing University</p>
-            <h1>Jun-Tao<br /><em>Tang</em></h1>
+            <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of Dr. Da-Wei Zhou. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
 
             <div className="profile-blocks">
@@ -150,7 +161,7 @@ export default function Home() {
           <div className="feature-card">
             <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer.mp4" type="video/mp4" />Your browser does not support the video tag.</video><span className="video-label">Paper walkthrough</span></div>
             <div className="feature-copy">
-              <div className="paper-topline"><span className="paper-short">{cram.shortLabel}</span><span className="paper-status">{cram.venueShort}</span></div>
+              <div className="paper-topline"><span className="paper-short">{cram.label}</span><span className="paper-status">{cram.status}</span></div>
               <h3>{cram.title}</h3>
               <AuthorLine authors={cram.authors} dark />
               <VenueLine paper={cram} dark />

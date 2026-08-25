@@ -36,7 +36,7 @@ a { color: inherit; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; }
 .eyebrow span { width: 24px; height: 1px; display: inline-block; background: var(--coral); }
 h1, h2, h3, p { margin-top: 0; }
-h1 { font-size: clamp(58px, 7vw, 96px); line-height: .88; letter-spacing: -.085em; margin-bottom: 25px; font-weight: 700; }
+h1 { font-size: clamp(48px, 6.7vw, 92px); line-height: .88; letter-spacing: -.085em; margin-bottom: 25px; font-weight: 700; white-space: nowrap; }
 h1 em { color: var(--blue-strong); font-style: normal; }
 .hero-lede { max-width: 515px; font-size: 18px; line-height: 1.5; letter-spacing: -.025em; color: #425355; margin-bottom: 33px; }
 .hero-actions { display: flex; gap: 25px; flex-wrap: wrap; margin-top: 30px; }
@@ -44,7 +44,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .arrow-link span { color: var(--coral); font-size: 18px; line-height: 10px; transition: transform .2s ease; }
 .arrow-link:hover span { transform: translate(3px, -3px); }
 
-.hero-portrait-wrap { max-width: 360px; justify-self: start; width: 100%; position: relative; padding: 14px 20px 27px 30px; margin: 39px 0 0 -10px; }
+.hero-portrait-wrap { max-width: 330px; justify-self: start; width: 100%; position: relative; padding: 14px 20px 27px 30px; margin: 40px 0 0 -26px; }
 .portrait-backdrop { position: absolute; top: 0; left: 0; width: 88%; height: 91%; background: var(--blue); border-radius: 45% 43% 7% 7%; transform: rotate(-4deg); }
 .portrait-frame { position: relative; background: var(--white); padding: 13px 13px 0; transform: rotate(3deg); box-shadow: 0 20px 40px rgba(19,37,43,.12); }
 .portrait-frame img { display: block; width: 100%; aspect-ratio: 1 / 1.13; object-fit: cover; object-position: center top; filter: saturate(.83) contrast(.96); }
@@ -72,9 +72,9 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .feature-copy .paper-topline { margin-bottom: 20px; }
 .feature-copy h3 { font-size: clamp(24px, 2.8vw, 35px); line-height: 1.04; letter-spacing: -.06em; margin-bottom: 16px; }
 .paper-topline { display: flex; align-items: center; gap: 12px; }
-.paper-short { display: inline-block; padding: 6px 9px; background: var(--blue); color: var(--blue-strong); font: 700 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; }
-.paper-status { color: var(--muted); font-size: 11px; }
-.feature-copy .paper-status { color: #9db4b6; }
+.paper-short { display: inline-block; padding: 8px 12px; background: var(--blue); color: var(--blue-strong); font: 800 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.paper-status { color: var(--blue-strong); font-size: 12px; font-weight: 750; }
+.feature-copy .paper-status { color: var(--lime); }
 .authors { color: var(--muted); font-size: 12px; line-height: 1.6; margin: 0 0 8px; }
 .authors-dark { color: #9db4b6; }
 .author-me { color: var(--ink); font-weight: 750; }
@@ -83,6 +83,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .venue-line strong { color: var(--ink); font-weight: 750; }
 .venue-line-dark { color: #9db4b6; }
 .venue-line-dark strong { color: var(--paper-light); }
+.contribution-note { color: var(--coral); font: 600 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 8px 0 0; }
 .feature-summary { color: #b7c9cb; font-size: 13px; line-height: 1.6; margin: auto 0 0; padding-top: 28px; }
 
 .publication-heading { border-bottom: 1px solid var(--line); padding-bottom: 23px; }
@@ -111,7 +112,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
   .top-nav { padding: 0 5vw; }
   .nav-links { gap: 15px; }
   .hero { grid-template-columns: 1fr; padding: 70px 0 85px; gap: 55px; }
-  .hero-portrait-wrap { justify-self: center; max-width: 360px; margin: 0; }
+  .hero-portrait-wrap { justify-self: center; max-width: 330px; margin: 0; }
   .hero-copy { max-width: 650px; }
   .feature-card { grid-template-columns: 1fr; }
   .feature-video { min-height: 310px; }
@@ -125,7 +126,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
   .top-nav { height: 64px; }
   .wordmark > span:last-child, .nav-status { display: none; }
   .nav-links { margin-left: auto; }
-  h1 { font-size: clamp(54px, 16vw, 76px); }
+  h1 { font-size: clamp(40px, 12vw, 66px); }
   .hero-lede { font-size: 16px; }
   .hero { min-height: auto; padding: 60px 0 75px; }
   .hero-portrait-wrap { padding-left: 20px; padding-right: 14px; }
