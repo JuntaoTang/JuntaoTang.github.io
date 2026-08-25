@@ -19,7 +19,7 @@ type Paper = {
 const papers: Paper[] = [
   {
     label: 'ICML',
-    status: 'Accepted · 2026',
+    status: 'Conference paper',
     title: 'SAME: Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Zhen-Hao Xie', equal: true }, { name: 'Jun-Tao Tang', me: true, equal: true }, { name: 'Yu-Cheng Shi' },
@@ -29,11 +29,11 @@ const papers: Paper[] = [
     venueShort: 'ICML 2026',
     image: '/assets/papers/same.png',
     showEqual: true,
-    contributionNote: '* Equal contribution · Jun-Tao Tang is the second co-first author.',
+    contributionNote: '* Equal contribution',
   },
   {
     label: 'EMNLP',
-    status: 'Main conference · 2026',
+    status: 'Main Conference paper',
     title: 'CRAM: Centroid-Routing and Adaptive MoE for Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Jun-Tao Tang', me: true }, { name: 'Zhen-Hao Xie' }, { name: 'Yu-Cheng Shi' }, { name: 'Da-Wei Zhou' },
@@ -44,7 +44,7 @@ const papers: Paper[] = [
   },
   {
     label: 'ACM MM',
-    status: 'Accepted · 2026',
+    status: 'Conference paper',
     title: 'Active Quality Assessment and Hierarchical Aggregation for Incomplete Multi-View Multi-Label Classification',
     authors: [
       { name: 'Kewei Wen' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Bob Zhang' }, { name: 'Yanghao Zhou' },
@@ -56,7 +56,7 @@ const papers: Paper[] = [
   },
   {
     label: 'Preprint',
-    status: 'Preprint · 2026',
+    status: 'Preprint',
     title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' },
@@ -69,7 +69,7 @@ const papers: Paper[] = [
   },
   {
     label: 'Preprint',
-    status: 'Preprint · 2026',
+    status: 'Preprint',
     title: 'Prism: A Plug-in Reproducible Infrastructure for Scalable Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' },
