@@ -155,6 +155,10 @@ export default function Home() {
             </div>
 
             <div className="hero-actions"><ArrowLink href="#publications">View publications</ArrowLink><ArrowLink href="mailto:juntao.tang@smail.nju.edu.cn">Email me</ArrowLink></div>
+            <div className="profile-links" aria-label="External profiles">
+              <a href="https://github.com/JuntaoTang" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://scholar.google.com/citations?user=k7FteWkAAAAJ&hl=zh-TW" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </section>
 
