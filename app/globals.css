@@ -72,8 +72,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .feature-copy .paper-topline { margin-bottom: 20px; }
 .feature-copy h3 { font-size: clamp(24px, 2.8vw, 35px); line-height: 1.04; letter-spacing: -.06em; margin-bottom: 16px; }
 .paper-topline { display: flex; align-items: center; gap: 12px; }
-.paper-short { display: inline-block; padding: 8px 12px; background: var(--blue); color: var(--blue-strong); font: 800 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
-.paper-short-acm { font-family: "Comic Sans MS", "Comic Sans", cursive; font-size: 14px; letter-spacing: -.04em; }
+.paper-short { display: inline-block; padding: 8px 12px; background: var(--blue); color: var(--blue-strong); font: 800 14px/1 "Comic Sans MS", "Comic Sans", cursive; letter-spacing: -.04em; white-space: nowrap; }
 .paper-status { color: var(--blue-strong); font-size: 12px; font-weight: 750; }
 .feature-copy .paper-status { color: var(--lime); }
 .paper-link { margin-left: auto; color: var(--blue-strong); font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-decoration: none; }
