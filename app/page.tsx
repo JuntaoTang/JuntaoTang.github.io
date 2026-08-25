@@ -10,6 +10,7 @@ type Paper = {
   venueFull: string;
   venueShort: string;
   image: string;
+  link?: string;
   preprint?: boolean;
   showEqual?: boolean;
   contributionNote?: string;
@@ -63,6 +64,7 @@ const papers: Paper[] = [
     venueFull: 'Preprint.',
     venueShort: 'Preprint 2026',
     image: '/assets/papers/protoada.png',
+    link: 'https://arxiv.org/abs/2606.02576',
     preprint: true,
   },
   {
@@ -75,6 +77,7 @@ const papers: Paper[] = [
     venueFull: 'Preprint.',
     venueShort: 'Preprint 2026',
     image: '/assets/papers/prism.png',
+    link: 'https://arxiv.org/abs/2605.26110',
     preprint: true,
   },
 ];
@@ -106,7 +109,7 @@ function PaperCard({ paper }: { paper: Paper }) {
     <article className="paper-card">
       <div className="paper-media"><img src={paper.image} alt={`${paper.label} paper overview`} loading="lazy" /></div>
       <div className="paper-body">
-        <div className="paper-topline"><span className="paper-short">{paper.label}</span><span className="paper-status">{paper.status}</span></div>
+        <div className="paper-topline"><span className={`paper-short${paper.label === 'ACM MM' ? ' paper-short-acm' : ''}`}>{paper.label}</span><span className="paper-status">{paper.status}</span>{paper.link && <a className="paper-link" href={paper.link} target="_blank" rel="noreferrer">arXiv ↗</a>}</div>
         <h3>{paper.title}</h3>
         <AuthorLine authors={paper.authors} showEqual={paper.showEqual} />
         <VenueLine paper={paper} />
@@ -138,15 +141,14 @@ export default function Home() {
             <div className="portrait-backdrop" aria-hidden="true" />
             <div className="portrait-frame">
               <img src="/assets/avatar.png" alt="Portrait of Jun-Tao Tang" />
-              <div className="portrait-caption"><span>Jun-Tao Tang</span><span>Nanjing · 2026</span></div>
+              <div className="portrait-caption"><span>Jun-Tao Tang</span></div>
             </div>
-            <div className="portrait-stamp">LAMDA<br />GROUP</div>
           </div>
 
           <div className="hero-copy">
             <p className="eyebrow"><span /> Undergraduate researcher · Nanjing University</p>
             <h1>Jun-Tao <em>Tang</em></h1>
-            <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of Dr. Da-Wei Zhou. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
+            <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Dr. Da-Wei Zhou</a>. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
 
             <div className="profile-blocks">
               <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Generative Vision <small>(Generative AI)</small></span></div></div>
