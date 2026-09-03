@@ -18,20 +18,6 @@ type Paper = {
 
 const papers: Paper[] = [
   {
-    label: 'ICML',
-    status: 'Conference paper',
-    title: 'SAME: Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Zhen-Hao Xie', equal: true }, { name: 'Jun-Tao Tang', me: true, equal: true }, { name: 'Yu-Cheng Shi' },
-      { name: 'Han-Jia Ye' }, { name: 'De-Chuan Zhan' }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'International Conference on Machine Learning.',
-    venueShort: 'ICML 2026',
-    image: '/assets/papers/same.png',
-    showEqual: true,
-    contributionNote: '* Equal contribution',
-  },
-  {
     label: 'EMNLP',
     status: 'Main Conference paper',
     title: 'CRAM: Centroid-Routing and Adaptive MoE for Multimodal Continual Instruction Tuning',
@@ -65,19 +51,6 @@ const papers: Paper[] = [
     venueShort: 'arXiv:2606.02576',
     image: '/assets/papers/protoada.png',
     link: 'https://arxiv.org/abs/2606.02576',
-    preprint: true,
-  },
-  {
-    label: 'Preprint',
-    status: 'Preprint',
-    title: 'Prism: A Plug-in Reproducible Infrastructure for Scalable Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'Preprint ·',
-    venueShort: 'arXiv:2605.26110',
-    image: '/assets/papers/prism.png',
-    link: 'https://arxiv.org/abs/2605.26110',
     preprint: true,
   },
 ];
