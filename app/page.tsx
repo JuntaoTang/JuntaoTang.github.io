@@ -29,18 +29,6 @@ const papers: Paper[] = [
     image: '/assets/papers/cram.png',
   },
   {
-    label: 'ACM MM',
-    status: 'Conference paper',
-    title: 'Active Quality Assessment and Hierarchical Aggregation for Incomplete Multi-View Multi-Label Classification',
-    authors: [
-      { name: 'Kewei Wen' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Bob Zhang' }, { name: 'Yanghao Zhou' },
-      { name: 'Chao Huang' }, { name: 'Jie Wen' }, { name: 'Chengliang Liu' },
-    ],
-    venueFull: 'ACM International Conference on Multimedia.',
-    venueShort: 'ACM MM 2026',
-    image: '/assets/papers/area.png',
-  },
-  {
     label: 'Preprint',
     status: 'Preprint',
     title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
