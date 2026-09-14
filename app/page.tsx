@@ -57,19 +57,6 @@ const papers: Paper[] = [
   {
     label: 'Preprint',
     status: 'Preprint',
-    title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'Preprint ·',
-    venueShort: 'arXiv:2606.02576',
-    image: '/assets/papers/protoada.png',
-    link: 'https://arxiv.org/abs/2606.02576',
-    preprint: true,
-  },
-  {
-    label: 'Preprint',
-    status: 'Preprint',
     title: 'Prism: A Plug-in Reproducible Infrastructure for Scalable Multimodal Continual Instruction Tuning',
     authors: [
       { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' },
@@ -78,6 +65,19 @@ const papers: Paper[] = [
     venueShort: 'arXiv:2605.26110',
     image: '/assets/papers/prism.png',
     link: 'https://arxiv.org/abs/2605.26110',
+    preprint: true,
+  },
+  {
+    label: 'Preprint',
+    status: 'Preprint',
+    title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
+    authors: [
+      { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' },
+    ],
+    venueFull: 'Preprint ·',
+    venueShort: 'arXiv:2606.02576',
+    image: '/assets/papers/protoada.png',
+    link: 'https://arxiv.org/abs/2606.02576',
     preprint: true,
   },
 ];
@@ -151,7 +151,7 @@ export default function Home() {
             <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Pr. Da-Wei Zhou</a>. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
 
             <div className="profile-blocks">
-              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Generative Vision <small>(Generative AI)</small></span></div></div>
+              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Multimodal Models</span></div></div>
             </div>
 
             <div className="hero-actions">

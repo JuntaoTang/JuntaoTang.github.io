@@ -55,7 +55,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 
 .profile-blocks { border-top: 1px solid var(--line); max-width: 560px; }
 .profile-block { display: grid; grid-template-columns: 145px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.profile-block > span { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font: 600 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.profile-block > span { color: var(--blue-strong); text-transform: none; letter-spacing: .01em; font: 700 12px/1.45 var(--font-site); }
 .profile-block p { color: #4c5d5e; font-size: 13px; line-height: 1.55; margin: 0; }
 .interest-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .interest-list > span { padding: 6px 9px; border: 1px solid var(--line); background: rgba(251,250,247,.6); font-size: 11px; }
