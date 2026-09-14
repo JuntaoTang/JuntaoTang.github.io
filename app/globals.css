@@ -87,7 +87,7 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .venue-line strong { color: var(--ink); font-weight: 750; }
 .venue-line-dark { color: #9db4b6; }
 .venue-line-dark strong { color: var(--paper-light); }
-.contribution-note { color: var(--coral); font: 600 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 8px 0 0; }
+.contribution-note { display: inline-flex; align-self: flex-start; color: var(--coral); border: 1px solid rgba(239,146,117,.45); background: rgba(239,146,117,.09); padding: 5px 9px; font: 650 13px/1.35 var(--font-site); margin: 10px 0 0; }
 .feature-summary { color: #b7c9cb; font-size: 13px; line-height: 1.6; margin: auto 0 0; padding-top: 28px; }
 
 .publication-heading { border-bottom: 1px solid var(--line); padding-bottom: 23px; }

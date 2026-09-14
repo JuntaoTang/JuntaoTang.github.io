@@ -132,7 +132,6 @@ export default function Home() {
       <nav className="top-nav" aria-label="Primary navigation">
         <a className="wordmark" href="#top" aria-label="Jun-Tao Tang home"><span className="wordmark-mark">JT</span><span>Jun-Tao Tang</span></a>
         <div className="nav-links"><a href="#research">Research</a><a href="#publications">Publications</a></div>
-        <a className="nav-status" href="mailto:juntao.tang@smail.nju.edu.cn"><span className="status-dot" /> Get in touch</a>
       </nav>
 
       <div id="top" className="page-wrap">
@@ -146,7 +145,6 @@ export default function Home() {
           </div>
 
           <div className="hero-copy">
-            <p className="eyebrow"><span /> Undergraduate researcher · Nanjing University</p>
             <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Pr. Da-Wei Zhou</a>. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
 
@@ -164,26 +162,24 @@ export default function Home() {
         </section>
 
         <section className="feature-section" aria-labelledby="feature-title">
-          <div className="section-heading"><div><p className="section-kicker">Featured paper</p><h2 id="feature-title">CRAM, in motion.</h2></div><span className="section-count">01 / 05</span></div>
+          <div className="section-heading"><div><p className="section-kicker">Featured paper</p><h2 id="feature-title">CRAM, in motion.</h2></div></div>
           <div className="feature-card">
             <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer.mp4" type="video/mp4" />Your browser does not support the video tag.</video><span className="video-label">Paper walkthrough</span></div>
             <div className="feature-copy">
               <div className="paper-topline"><span className="paper-short">{cram.label}</span><span className="paper-status">{cram.status}</span></div>
               <h3>{cram.title}</h3>
               <AuthorLine authors={cram.authors} dark />
-              <VenueLine paper={cram} dark />
-              <p className="feature-summary">A compact view of routing and modular adaptation for multimodal continual instruction tuning.</p>
             </div>
           </div>
         </section>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
-          <div className="section-heading publication-heading"><div><p className="section-kicker">Selected work</p><h2 id="publications-title">Publications &amp; preprints</h2></div><span className="section-count">03 papers · 02 preprints</span></div>
+          <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 
         <section className="awards-section" aria-labelledby="awards-title">
-          <div className="section-heading"><div><p className="section-kicker">Recognition</p><h2 id="awards-title">Scholarships</h2></div></div>
+          <div className="section-heading"><div><h2 id="awards-title">Scholarships</h2></div></div>
           <div className="awards-list">
             <div className="award-item"><span className="award-year">2025</span><h3>BYD Scholarship</h3></div>
             <div className="award-item"><span className="award-year">2024</span><h3>First-Class Scholarship</h3></div>
