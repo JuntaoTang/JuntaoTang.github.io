@@ -131,7 +131,7 @@ export default function Home() {
       <div className="grain" aria-hidden="true" />
       <nav className="top-nav" aria-label="Primary navigation">
         <a className="wordmark" href="#top" aria-label="Jun-Tao Tang home"><span className="wordmark-mark">JT</span><span>Jun-Tao Tang</span></a>
-        <div className="nav-links"><a href="#research">Research</a><a href="#publications">Publications</a></div>
+        <div className="nav-links"><a href="#research">Research</a><a href="#news">News</a><a href="#publications">Publications</a></div>
       </nav>
 
       <div id="top" className="page-wrap">
@@ -161,10 +161,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="news-section" id="news" aria-labelledby="news-title">
+          <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
+          <div className="news-list">
+            <article className="news-item">
+              <time dateTime="2026-08">Aug. 2026</time>
+              <p>One paper on continual instruction tuning was accepted to EMNLP 2026.</p>
+            </article>
+            <article className="news-item">
+              <time dateTime="2026-07">Jul. 2026</time>
+              <p>One paper on multi-view multi-label classification was accepted to ACM MM 2026.</p>
+            </article>
+            <article className="news-item">
+              <time dateTime="2026-05">May. 2026</time>
+              <p>We released <a href="https://github.com/LAMDA-CL/Prism" target="_blank" rel="noreferrer">a toolbox for MCIT</a> (<a href="https://arxiv.org/abs/2605.26110" target="_blank" rel="noreferrer">Technical Report</a>).</p>
+            </article>
+            <article className="news-item">
+              <time dateTime="2026-05">May. 2026</time>
+              <p>One paper on continual learning was accepted to ICML 2026.</p>
+            </article>
+          </div>
+        </section>
+
         <section className="feature-section" aria-labelledby="feature-title">
           <div className="section-heading"><div><p className="section-kicker">Featured paper</p><h2 id="feature-title">CRAM, in motion.</h2></div></div>
           <div className="feature-card">
-            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer.mp4" type="video/mp4" />Your browser does not support the video tag.</video><span className="video-label">Paper walkthrough</span></div>
+            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video><span className="video-label">Paper walkthrough</span></div>
             <div className="feature-copy">
               <div className="paper-topline"><span className="paper-short">{cram.label}</span><span className="paper-status">{cram.status}</span></div>
               <h3>{cram.title}</h3>
@@ -181,12 +203,19 @@ export default function Home() {
         <section className="awards-section" aria-labelledby="awards-title">
           <div className="section-heading"><div><h2 id="awards-title">Scholarships</h2></div></div>
           <div className="awards-list">
-            <div className="award-item"><span className="award-year">2025</span><h3>BYD Scholarship</h3></div>
-            <div className="award-item"><span className="award-year">2024</span><h3>First-Class Scholarship</h3></div>
+            <article className="award-item"><time className="award-year" dateTime="2025">2025</time><h3>BYD Scholarship</h3></article>
+            <article className="award-item"><time className="award-year" dateTime="2024">2024</time><h3>First-Class Scholarship</h3></article>
           </div>
         </section>
 
-        <footer className="site-footer"><div><span className="footer-mark">JT</span><span>Jun-Tao Tang</span></div><p>Multimodal learning · Nanjing University</p><a href="mailto:juntao.tang@smail.nju.edu.cn">juntao.tang@smail.nju.edu.cn ↗</a></footer>
+        <section className="collaborators-section" aria-labelledby="collaborators-title">
+          <div className="section-heading"><div><h2 id="collaborators-title">Collaborators</h2></div></div>
+          <a className="collaborator-card" href="https://hhdnp.github.io/" target="_blank" rel="noreferrer">
+            <span className="collaborator-mark" aria-hidden="true">YS</span>
+            <span className="collaborator-copy"><strong>Yu-Cheng Shi</strong><span>Incoming PhD student at Peking University</span></span>
+            <span className="collaborator-arrow" aria-hidden="true">↗</span>
+          </a>
+        </section>
       </div>
     </main>
   );
