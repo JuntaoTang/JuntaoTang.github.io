@@ -146,7 +146,9 @@ export default function Home() {
 
           <div className="hero-copy">
             <h1>Jun-Tao <em>Tang</em></h1>
-            <p className="hero-lede">I am an undergraduate student in the School of Computer Science at Nanjing University. Since 2025, I have been a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Pr. Da-Wei Zhou</a>. My work explores how intelligent systems learn, adapt, and generate across modalities.</p>
+            <p className="hero-lede">
+              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the School of Artificial Intelligence (SAI), Shanghai Jiao Tong University, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>. My research interests broadly span multimodal large language models, world models, and generative AI.
+            </p>
 
             <div className="profile-blocks">
               <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Multimodal Models</span></div></div>
@@ -164,6 +166,10 @@ export default function Home() {
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
           <div className="news-list">
+            <article className="news-item">
+              <time dateTime="2026-09">Sep. 2026</time>
+              <p>I am serving as a reviewer for ICLR 2027.</p>
+            </article>
             <article className="news-item">
               <time dateTime="2026-08">Aug. 2026</time>
               <p>One paper on continual instruction tuning was accepted to EMNLP 2026.</p>
@@ -184,13 +190,12 @@ export default function Home() {
         </section>
 
         <section className="feature-section" aria-labelledby="feature-title">
-          <div className="section-heading"><div><p className="section-kicker">Featured paper</p><h2 id="feature-title">CRAM, in motion.</h2></div></div>
+          <div className="section-heading"><div><h2 id="feature-title">Featured paper</h2></div></div>
           <div className="feature-card">
-            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video><span className="video-label">Paper walkthrough</span></div>
+            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
             <div className="feature-copy">
               <div className="paper-topline"><span className="paper-short">{cram.label}</span><span className="paper-status">{cram.status}</span></div>
               <h3>{cram.title}</h3>
-              <AuthorLine authors={cram.authors} dark />
             </div>
           </div>
         </section>
