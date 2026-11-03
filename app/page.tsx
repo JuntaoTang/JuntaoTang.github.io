@@ -35,6 +35,7 @@ function PaperCard({ paper }: { paper: Paper }) {
         <h3>{paper.title}</h3>
         <AuthorLine authors={paper.authors} showEqual={paper.showEqual} />
         <VenueLine paper={paper} />
+        {paper.slides && <p className="paper-resources"><a href={paper.slides} target="_blank" rel="noreferrer">Slides (PDF) ↗</a></p>}
         {paper.contributionNote && <p className="contribution-note">{paper.contributionNote}</p>}
       </div>
     </article>
@@ -130,9 +131,9 @@ export default function Home() {
             <div className="feature-copy">
               <h3>{cram.title}</h3>
               <p className="feature-venue">EMNLP 2026 · Main Conference <span className="first-author">First author</span></p>
-              <p className="feature-summary">Centroid-guided routing reuses learned experts, while adaptive ranks allocate capacity for new tasks. Orthogonal updates help preserve prior knowledge during multimodal continual instruction tuning.</p>
+              <p className="feature-summary">We study how a multimodal model can learn new tasks without forgetting old ones or continually adding more parameters. CRAM reuses experts with relevant skills and adds a small amount of capacity only when a new task needs it.</p>
             </div>
-            <div className="feature-video"><video controls playsInline preload="none" poster="/assets/media/cram-cover.svg" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
+            <div className="feature-video"><video controls playsInline preload="none" poster="/assets/media/cram-cover-emnlp.png" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
           </div>
         </section>
         </div>

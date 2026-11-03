@@ -85,6 +85,7 @@ h1 em { font-style: normal; }
 .paper-short { color: var(--blue-strong); font-size: 14px; line-height: 1.35; font-weight: 700; }
 .paper-status, .paper-link { font-size: 12px; color: var(--muted); }
 .paper-link { color: var(--blue-strong); }
+.paper-resources { margin: 5px 0 0; font-size: 13px; }
 .paper-list { display: grid; }
 .paper-card { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: center; gap: 22px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .paper-card:last-child { border-bottom: 0; }

@@ -8,6 +8,7 @@ export type Paper = {
   venueShort: string;
   image: string;
   link?: string;
+  slides?: string;
   preprint?: boolean;
   showEqual?: boolean;
   contributionNote?: string;
@@ -30,6 +31,7 @@ export const papers: Paper[] = [
     authors: [{ name: 'Jun-Tao Tang', me: true }, { name: 'Zhen-Hao Xie' }, { name: 'Yu-Cheng Shi' }, { name: 'Da-Wei Zhou' }],
     venueFull: 'Conference on Empirical Methods in Natural Language Processing.', venueShort: 'EMNLP 2026',
     image: '/assets/papers/cram.png',
+    slides: '/assets/slides/cram-emnlp2026.pdf',
   },
   {
     label: 'ACM MM', status: 'Conference paper',

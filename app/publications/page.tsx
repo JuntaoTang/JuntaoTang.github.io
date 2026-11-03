@@ -26,6 +26,7 @@ export default function Publications() {
               <p className="publication-text-venue">
                 {paper.preprint ? <>Preprint · <strong>{paper.venueShort}</strong></> : <>{paper.venueFull} <strong>{paper.venueShort}{paper.label === 'EMNLP' && ' · Main Conference'}</strong></>}
               </p>
+              {paper.slides && <p className="paper-resources"><a href={paper.slides} target="_blank" rel="noreferrer">Slides (PDF) ↗</a></p>}
             </article>
           ))}
         </div>
