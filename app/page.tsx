@@ -80,6 +80,7 @@ export default function Home() {
         </section>
 
         <div className="updates-grid">
+        <div className="updates-sidebar">
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
@@ -110,6 +111,19 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="blogs-section" aria-labelledby="latest-blogs-title">
+          <div className="section-heading"><h2 id="latest-blogs-title">Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
+          <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
+            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
+              <article className="blog-item" key={post.href}>
+                <time dateTime={post.date}>{post.date}</time>
+                <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
+              </article>
+            ))}
+          </div>
+        </section>
+        </div>
+
         <section className="feature-section" aria-labelledby="feature-title">
           <div className="section-heading"><div><h2 id="feature-title">Featured paper</h2></div></div>
           <div className="feature-card">
@@ -121,18 +135,6 @@ export default function Home() {
           </div>
         </section>
         </div>
-
-        <section className="blogs-section" aria-labelledby="latest-blogs-title">
-          <div className="section-heading"><h2 id="latest-blogs-title">Latest Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
-          <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
-            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
-              <article className="blog-item" key={post.href}>
-                <time dateTime={post.date}>{post.date}</time>
-                <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
           <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
