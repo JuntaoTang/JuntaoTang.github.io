@@ -139,7 +139,7 @@ export default function Home() {
           <div className="hero-portrait-wrap">
             <div className="portrait-backdrop" aria-hidden="true" />
             <div className="portrait-frame">
-              <img src="/assets/avatar.png" alt="Portrait of Jun-Tao Tang" />
+              <img src="/assets/avatar-v2.png" alt="Portrait of Jun-Tao Tang" />
               <div className="portrait-caption"><span>Jun-Tao Tang</span></div>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">
-              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the School of Artificial Intelligence (SAI), Shanghai Jiao Tong University, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>. My research interests broadly span multimodal large language models, world models, and generative AI.
+              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the <a className="inline-link" href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">School of Artificial Intelligence (SAI), Shanghai Jiao Tong University</a>, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>. My research interests broadly span multimodal large language models, world models, and generative AI.
             </p>
 
             <div className="profile-blocks">
