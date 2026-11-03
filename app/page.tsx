@@ -81,6 +81,18 @@ export default function Home() {
 
         <div className="updates-grid">
         <div className="updates-sidebar">
+        <section className="blogs-section" aria-labelledby="latest-blogs-title">
+          <div className="section-heading"><h2 id="latest-blogs-title">Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
+          <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
+            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
+              <article className="blog-item" key={post.href}>
+                <time dateTime={post.date}>{post.date}</time>
+                <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
@@ -108,18 +120,6 @@ export default function Home() {
               <time dateTime="2026-05">May. 2026</time>
               <p>One paper on continual learning was accepted to ICML 2026.</p>
             </article>
-          </div>
-        </section>
-
-        <section className="blogs-section" aria-labelledby="latest-blogs-title">
-          <div className="section-heading"><h2 id="latest-blogs-title">Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
-          <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
-            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
-              <article className="blog-item" key={post.href}>
-                <time dateTime={post.date}>{post.date}</time>
-                <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
-              </article>
-            ))}
           </div>
         </section>
         </div>
