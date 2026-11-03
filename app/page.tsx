@@ -1,86 +1,6 @@
 import type { ReactNode } from 'react';
 
-type Author = { name: string; me?: boolean; equal?: boolean };
-
-type Paper = {
-  label: string;
-  status: string;
-  title: string;
-  authors: Author[];
-  venueFull: string;
-  venueShort: string;
-  image: string;
-  link?: string;
-  preprint?: boolean;
-  showEqual?: boolean;
-  contributionNote?: string;
-};
-
-const papers: Paper[] = [
-  {
-    label: 'ICML',
-    status: 'Conference paper',
-    title: 'SAME: Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Zhen-Hao Xie', equal: true }, { name: 'Jun-Tao Tang', me: true, equal: true }, { name: 'Yu-Cheng Shi' },
-      { name: 'Han-Jia Ye' }, { name: 'De-Chuan Zhan' }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'International Conference on Machine Learning.',
-    venueShort: 'ICML 2026',
-    image: '/assets/papers/same.png',
-    showEqual: true,
-    contributionNote: '* Equal contribution',
-  },
-  {
-    label: 'EMNLP',
-    status: 'Main Conference paper',
-    title: 'CRAM: Centroid-Routing and Adaptive MoE for Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Jun-Tao Tang', me: true }, { name: 'Zhen-Hao Xie' }, { name: 'Yu-Cheng Shi' }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'Conference on Empirical Methods in Natural Language Processing.',
-    venueShort: 'EMNLP 2026',
-    image: '/assets/papers/cram.png',
-  },
-  {
-    label: 'ACM MM',
-    status: 'Conference paper',
-    title: 'Active Quality Assessment and Hierarchical Aggregation for Incomplete Multi-View Multi-Label Classification',
-    authors: [
-      { name: 'Kewei Wen' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Bob Zhang' }, { name: 'Yanghao Zhou' },
-      { name: 'Chao Huang' }, { name: 'Jie Wen' }, { name: 'Chengliang Liu' },
-    ],
-    venueFull: 'ACM International Conference on Multimedia.',
-    venueShort: 'ACM MM 2026',
-    image: '/assets/papers/area.png',
-  },
-  {
-    label: 'Preprint',
-    status: 'Preprint',
-    title: 'Prism: A Plug-in Reproducible Infrastructure for Scalable Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'Preprint ·',
-    venueShort: 'arXiv:2605.26110',
-    image: '/assets/papers/prism.png',
-    link: 'https://arxiv.org/abs/2605.26110',
-    preprint: true,
-  },
-  {
-    label: 'Preprint',
-    status: 'Preprint',
-    title: 'ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning',
-    authors: [
-      { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' },
-    ],
-    venueFull: 'Preprint ·',
-    venueShort: 'arXiv:2606.02576',
-    image: '/assets/papers/protoada.png',
-    link: 'https://arxiv.org/abs/2606.02576',
-    preprint: true,
-  },
-];
+import { papers, type Author, type Paper } from './papers';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -131,7 +51,7 @@ export default function Home() {
       <div className="grain" aria-hidden="true" />
       <nav className="top-nav" aria-label="Primary navigation">
         <a className="wordmark" href="#top" aria-label="Jun-Tao Tang home"><span className="wordmark-mark">JT</span><span>Jun-Tao Tang</span></a>
-        <div className="nav-links"><a href="#research">Research</a><a href="#news">News</a><a href="#publications">Publications</a></div>
+        <div className="nav-links"><a href="/" aria-current="page">Home</a><a href="#news">News</a><a href="/publications/">Publications</a></div>
       </nav>
 
       <div id="top" className="page-wrap">
@@ -155,7 +75,7 @@ export default function Home() {
             </div>
 
             <div className="hero-actions">
-              <ArrowLink href="#publications">View publications</ArrowLink>
+              <ArrowLink href="/publications/">View publications</ArrowLink>
               <ArrowLink href="mailto:juntao.tang@smail.nju.edu.cn">Email me</ArrowLink>
               <ArrowLink href="https://github.com/JuntaoTang">GitHub</ArrowLink>
               <ArrowLink href="https://scholar.google.com/citations?user=k7FteWkAAAAJ&hl=zh-TW">Google Scholar</ArrowLink>
@@ -201,7 +121,7 @@ export default function Home() {
         </section>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
-          <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div></div>
+          <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 

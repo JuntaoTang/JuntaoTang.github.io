@@ -134,6 +134,21 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 .collaborator-arrow { color: var(--coral); font-size: 27px; line-height: 1; transition: transform .2s ease; }
 .collaborator-card:hover .collaborator-arrow { transform: translate(3px, -3px); }
 
+.nav-links a[aria-current="page"] { color: var(--blue-strong); font-weight: 750; }
+.paper-media:has(img[src="/assets/papers/ravel-figure7.png"]) { display: flex; align-items: center; }
+.paper-media img[src="/assets/papers/ravel-figure7.png"] { height: auto; object-fit: contain; }
+.publication-heading > .arrow-link { flex-shrink: 0; }
+.publications-page { max-width: 1000px; padding-top: 54px; padding-bottom: 64px; }
+.publications-header { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.publications-header h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.08; letter-spacing: -.045em; margin: 0; }
+.equal-legend { margin: 0; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.equal-legend sup, .publication-text-authors sup { color: var(--blue-strong); font-weight: 750; }
+.publication-text-item { padding: 25px 0; border-bottom: 1px solid var(--line); }
+.publication-text-item h2 { font-size: clamp(21px, 2.1vw, 27px); line-height: 1.3; letter-spacing: -.025em; font-weight: 650; margin: 0 0 10px; }
+.publication-text-authors { font-size: 16px; line-height: 1.7; color: #566465; margin: 0 0 7px; }
+.publication-text-venue { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+.publication-text-venue strong { color: var(--blue-strong); font-weight: 700; }
+
 @media (max-width: 850px) {
   .top-nav { padding: 0 5vw; }
   .nav-links { gap: 15px; }
@@ -148,6 +163,10 @@ h1 em { color: var(--blue-strong); font-style: normal; }
 }
 
 @media (max-width: 600px) {
+  .publications-page { padding-top: 36px; padding-bottom: 44px; }
+  .publications-header { flex-direction: column; gap: 12px; padding-bottom: 18px; }
+  .publication-text-item { padding: 21px 0; }
+  .publication-text-authors { font-size: 15px; }
   .page-wrap { width: 88vw; }
   .top-nav { height: 64px; }
   .wordmark > span:last-child, .nav-status { display: none; }
