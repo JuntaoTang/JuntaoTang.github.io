@@ -39,6 +39,7 @@ h1 em { font-style: normal; }
 .arrow-link { font-size: 14px; }
 .arrow-link span { font-size: 12px; margin-left: 4px; }
 .publication-section { padding-bottom: 24px; }
+.publication-title-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
 .updates-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 28px; margin-bottom: 24px; }
 .updates-grid > * { min-width: 0; }
 .updates-sidebar { display: flex; flex-direction: column; gap: 20px; }
@@ -97,7 +98,6 @@ h1 em { font-style: normal; }
 .venue-line em { font-style: normal; }
 .venue-line strong { color: var(--blue-strong); }
 .authors sup { color: var(--blue-strong); font-weight: 700; }
-.contribution-note { font-size: 13px; color: var(--blue-strong); font-weight: 700; white-space: nowrap; }
 .awards-list { display: grid; gap: 7px; }
 .award-item { display: flex; align-items: baseline; gap: 22px; }
 .award-year { width: 46px; color: var(--muted); font-size: 14px; }

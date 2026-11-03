@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { papers, type Author, type Paper } from './papers';
 import SiteNav from './components/site-nav';
 import PaperResources from './components/paper-resources';
-import { posts } from './blogs/posts';
+import { selectedPosts } from './blogs/posts';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -14,7 +14,6 @@ function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Aut
           <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal && <sup>*</sup>}</span>
         </span>
       ))}
-      {showEqual && <strong className="contribution-note"> (co-first author)</strong>}
     </p>
   );
 }
@@ -61,7 +60,7 @@ export default function Home() {
         <section className="hero" id="research">
           <div className="hero-portrait-wrap">
             <div className="portrait-frame">
-              <img src="/assets/avatar-v3.png" alt="Portrait of Jun-Tao Tang" />
+              <img src="/assets/avatar-original-photo.png" alt="Portrait of Jun-Tao Tang" />
             </div>
           </div>
 
@@ -89,7 +88,7 @@ export default function Home() {
         <section className="blogs-section" aria-labelledby="latest-blogs-title">
           <div className="section-heading"><h2 id="latest-blogs-title">Selected Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
           <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
-            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
+            {selectedPosts.length === 0 ? <p className="blog-empty">No posts yet.</p> : selectedPosts.map((post) => (
               <article className="blog-item" key={post.href}>
                 <time dateTime={post.date}>{post.date}</time>
                 <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
@@ -103,7 +102,7 @@ export default function Home() {
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
             <article className="news-item">
               <time dateTime="2026-10">[Oct. 2026]</time>
-              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">ckpts</a> from <strong>more than 200 MLLMs</strong> we trained (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
+              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints</a> from <strong>more than 200 MLLMs</strong> we trained (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
             </article>
             <article className="news-item">
               <time dateTime="2026-09">[Sep. 2026]</time>
@@ -143,7 +142,7 @@ export default function Home() {
         </div>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
-          <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
+          <div className="section-heading publication-heading"><div className="publication-title-group"><h2 id="publications-title">Selected Publications &amp; preprints</h2><p className="equal-legend"><strong>* denotes co-first author</strong></p></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 
