@@ -1,0 +1,21 @@
+.ssl-puzzle-figure, .ssl-reward-figure { border-top: 1px solid #cbd3da; border-bottom: 1px solid #cbd3da; padding-top: 18px; }
+.ssl-puzzle-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+.ssl-panel-title { display: block; font: 600 15px/1.4 var(--article-sans); color: #3c5063; margin-bottom: 10px; }
+.ssl-puzzle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; aspect-ratio: 1; background: #fff; }
+.ssl-tile { position: relative; background-image: url('/assets/blogs/self-supervised-post-training/puzzle-scene.svg'); background-size: 300% 300%; }
+.ssl-tile span { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; display: grid; place-items: center; font: 600 12px/1 var(--article-sans); color: #344759; background: #fffffff0; border-radius: 2px; }
+.ssl-panel-note { display: block; font: 13px/1.5 var(--article-sans); color: var(--article-muted); margin-top: 8px; }
+.ssl-reward-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ssl-reward-group { min-width: 0; }
+.ssl-reward-bars { height: 116px; display: flex; align-items: end; justify-content: space-around; gap: 10px; border-bottom: 1px solid #c4cdd5; padding: 20px 8px 0; margin-top: 5px; }
+.ssl-reward-bar { width: 27px; min-height: 2px; position: relative; background: #9dabb8; }
+.ssl-reward-group-contrast .ssl-reward-bar { background: #547b9c; }
+.ssl-reward-bar span { position: absolute; top: -20px; width: 100%; text-align: center; font: 12px/1.4 var(--article-sans); color: #56616d; }
+.ssl-reward-group p { font: 13px/1.55 var(--article-sans); color: var(--article-muted); margin: 10px 0 0; }
+.ssl-reward-group code { font-size: 12px; white-space: normal; }
+@media (max-width: 600px) {
+  .ssl-puzzle-panels { grid-template-columns: 1fr; gap: 23px; }
+  .ssl-puzzle-panel { width: min(100%, 280px); margin: 0 auto; }
+  .ssl-reward-groups { grid-template-columns: 1fr; gap: 24px; }
+  .ssl-reward-bars { max-width: 260px; }
+}

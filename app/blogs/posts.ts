@@ -13,8 +13,18 @@ export const discreteVisualTokenizersPost: BlogPost = {
   selected: true,
 };
 
+export const selfSupervisedPostTrainingPost: BlogPost = {
+  title: 'Self-Supervised Post-Training for Stronger MLLMs',
+  date: '2026-11-04',
+  href: '/blogs/self-supervised-post-training/',
+  description: 'What visual puzzles teach MLLMs, why the gains can shrink with stronger models, and how task design shapes transfer.',
+  keywords: ['self-supervised-learning', 'multimodal-rl', 'visual-reasoning'],
+  selected: true,
+};
+
 // Add published articles here, newest first. Dates use YYYY-MM-DD.
 export const posts: BlogPost[] = [
+  selfSupervisedPostTrainingPost,
   discreteVisualTokenizersPost,
 ];
 
