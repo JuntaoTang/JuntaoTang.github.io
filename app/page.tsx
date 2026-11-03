@@ -72,7 +72,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <ArrowLink href="/publications/">View publications</ArrowLink>
-              <ArrowLink href="mailto:juntao.tang@smail.nju.edu.cn">Email me</ArrowLink>
+              <span className="profile-email">juntao.tang@smail.nju.edu.cn</span>
               <ArrowLink href="https://github.com/JuntaoTang">GitHub</ArrowLink>
               <ArrowLink href="https://scholar.google.com/citations?user=k7FteWkAAAAJ&hl=zh-TW">Google Scholar</ArrowLink>
             </div>

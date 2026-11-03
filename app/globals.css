@@ -36,6 +36,7 @@ h1 em { font-style: normal; }
 .interest-list { display: flex; gap: 0; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
 .interest-list > span + span::before { content: "·"; margin: 0 9px; }
 .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+.profile-email { font-size: 14px; overflow-wrap: anywhere; }
 .arrow-link { font-size: 14px; }
 .arrow-link span { font-size: 12px; margin-left: 4px; }
 .publication-section { padding-bottom: 24px; }
