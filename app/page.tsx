@@ -68,7 +68,7 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">
-              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the <a className="inline-link" href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">School of Artificial Intelligence (SAI), Shanghai Jiao Tong University</a>, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>.
+              I am currently an undergraduate student in the School of Computer Science at <a href="https://www.nju.edu.cn/" target="_blank" rel="noreferrer">Nanjing University</a> and an incoming Ph.D. student at the School of Artificial Intelligence (SAI), <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">Shanghai Jiao Tong University</a>, advised by <a href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the <a href="https://www.lamda.nju.edu.cn/CH.MainPage.ashx" target="_blank" rel="noreferrer">LAMDA</a> Group under the supervision of <a href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>.
             </p>
 
             <div className="profile-blocks">
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
             <article className="news-item">
               <time dateTime="2026-10">[Oct. 2026]</time>
-              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints from <strong>more than 200 MLLMs</strong> we trained</a> (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
+              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">ckpts</a> from <strong>more than 200 MLLMs</strong> we trained (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
             </article>
             <article className="news-item">
               <time dateTime="2026-09">[Sep. 2026]</time>

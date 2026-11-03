@@ -51,6 +51,7 @@ export const papers: Paper[] = [
     ],
     venueFull: 'ACM International Conference on Multimedia.', venueShort: 'ACM MM 2026',
     image: '/assets/papers/area.png',
+    code: 'https://github.com/justsmart/AQA-HA',
   },
   {
     label: 'Preprint', status: 'Preprint',
