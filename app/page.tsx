@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { papers, type Author, type Paper } from './papers';
+import SiteNav from './components/site-nav';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -48,19 +49,13 @@ export default function Home() {
 
   return (
     <main className="site-shell">
-      <div className="grain" aria-hidden="true" />
-      <nav className="top-nav" aria-label="Primary navigation">
-        <a className="wordmark" href="#top" aria-label="Jun-Tao Tang home"><span className="wordmark-mark">JT</span><span>Jun-Tao Tang</span></a>
-        <div className="nav-links"><a href="/" aria-current="page">Home</a><a href="#news">News</a><a href="/publications/">Publications</a></div>
-      </nav>
+      <SiteNav active="home" />
 
       <div id="top" className="page-wrap">
         <section className="hero" id="research">
           <div className="hero-portrait-wrap">
-            <div className="portrait-backdrop" aria-hidden="true" />
             <div className="portrait-frame">
               <img src="/assets/avatar-v2.png" alt="Portrait of Jun-Tao Tang" />
-              <div className="portrait-caption"><span>Jun-Tao Tang</span></div>
             </div>
           </div>
 
@@ -133,14 +128,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="collaborators-section" aria-labelledby="collaborators-title">
-          <div className="section-heading"><div><h2 id="collaborators-title">Collaborators</h2></div></div>
-          <a className="collaborator-card" href="https://hhdnp.github.io/" target="_blank" rel="noreferrer">
-            <span className="collaborator-mark" aria-hidden="true">YS</span>
-            <span className="collaborator-copy"><strong>Yu-Cheng Shi</strong><span>Incoming PhD student at Peking University</span></span>
-            <span className="collaborator-arrow" aria-hidden="true">↗</span>
-          </a>
-        </section>
       </div>
     </main>
   );

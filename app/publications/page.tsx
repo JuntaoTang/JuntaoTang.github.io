@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { papers } from '../papers';
+import SiteNav from '../components/site-nav';
 
 export const metadata: Metadata = { title: 'Publications | Jun-Tao Tang' };
 export const dynamic = 'force-static';
@@ -7,11 +8,7 @@ export const dynamic = 'force-static';
 export default function Publications() {
   return (
     <main className="site-shell">
-      <div className="grain" aria-hidden="true" />
-      <nav className="top-nav" aria-label="Primary navigation">
-        <a className="wordmark" href="/" aria-label="Jun-Tao Tang home"><span className="wordmark-mark">JT</span><span>Jun-Tao Tang</span></a>
-        <div className="nav-links"><a href="/">Home</a><a href="/#news">News</a><a href="/publications/" aria-current="page">Publications</a></div>
-      </nav>
+      <SiteNav active="publications" />
       <div className="page-wrap publications-page">
         <header className="publications-header">
           <h1>Publications</h1>
