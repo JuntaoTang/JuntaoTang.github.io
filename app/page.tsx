@@ -14,6 +14,7 @@ function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Aut
           <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal && <sup>*</sup>}</span>
         </span>
       ))}
+      {showEqual && <span className="contribution-note"> (* equal contribution)</span>}
     </p>
   );
 }
@@ -40,7 +41,6 @@ function PaperCard({ paper }: { paper: Paper }) {
         <AuthorLine authors={paper.authors} showEqual={paper.showEqual} />
         <VenueLine paper={paper} />
         <PaperResources paper={paper} />
-        {paper.contributionNote && <p className="contribution-note">{paper.contributionNote}</p>}
       </div>
     </article>
   );
@@ -144,12 +144,7 @@ export default function Home() {
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
           <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
-          {[{ title: 'Conference Papers', preprint: false }, { title: 'Preprints', preprint: true }].map((group) => (
-            <div className="publication-group" key={group.title}>
-              <h3 className="publication-group-title">{group.title}</h3>
-              <div className="paper-list">{papers.filter((paper) => Boolean(paper.preprint) === group.preprint).map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
-            </div>
-          ))}
+          <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 
       </div>

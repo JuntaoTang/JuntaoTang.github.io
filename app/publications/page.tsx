@@ -15,13 +15,10 @@ export default function Publications() {
           <h1>Publications</h1>
           <p className="equal-legend"><sup>*</sup> Equal contribution</p>
         </header>
-        {[{ title: 'Conference Papers', preprint: false }, { title: 'Preprints', preprint: true }].map((group) => (
-          <section className="publication-group" key={group.title}>
-            <h2 className="publication-group-title">{group.title}</h2>
-            <div className="publication-text-list">
-          {papers.filter((paper) => Boolean(paper.preprint) === group.preprint).map((paper) => (
+        <div className="publication-text-list">
+          {papers.map((paper) => (
             <article className="publication-text-item" key={paper.title}>
-              <h3>{paper.link ? <a href={paper.link} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
+              <h2>{paper.link ? <a href={paper.link} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h2>
               <p className="publication-text-authors">
                 {paper.authors.map((author, index) => (
                   <span key={author.name}>{index > 0 && ', '}<span className={author.me ? 'author-me' : undefined}>{author.name}{author.equal && <sup>*</sup>}</span></span>
@@ -33,9 +30,7 @@ export default function Publications() {
               <PaperResources paper={paper} />
             </article>
           ))}
-            </div>
-          </section>
-        ))}
+        </div>
       </div>
     </main>
   );
