@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import { papers, type Author, type Paper } from './papers';
 import SiteNav from './components/site-nav';
+import { posts } from './blogs/posts';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -78,12 +79,13 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="updates-grid">
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
             <article className="news-item">
               <time dateTime="2026-11">Nov. 2026</time>
-              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and a <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">model zoo</a> accompanying our evaluation of 210 trained MLLMs.</p>
+              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints of the MLLMs we trained</a>.</p>
             </article>
             <article className="news-item">
               <time dateTime="2026-09">Sep. 2026</time>
@@ -113,24 +115,28 @@ export default function Home() {
           <div className="feature-card">
             <div className="feature-copy">
               <h3>{cram.title}</h3>
-              <p className="feature-venue">EMNLP 2026 · Main Conference</p>
+              <p className="feature-venue">EMNLP 2026 · Main Conference <span className="first-author">First author</span></p>
             </div>
             <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
+          </div>
+        </section>
+        </div>
+
+        <section className="blogs-section" aria-labelledby="latest-blogs-title">
+          <div className="section-heading"><h2 id="latest-blogs-title">Latest Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
+          <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
+            {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
+              <article className="blog-item" key={post.href}>
+                <time dateTime={post.date}>{post.date}</time>
+                <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
+              </article>
+            ))}
           </div>
         </section>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
           <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
-        </section>
-
-        <section className="awards-section" aria-labelledby="awards-title">
-          <div className="section-heading"><div><h2 id="awards-title">Honors</h2></div></div>
-          <div className="awards-list">
-            <article className="award-item"><time className="award-year" dateTime="2026">2026</time><h3>Insta360 Scholarship</h3></article>
-            <article className="award-item"><time className="award-year" dateTime="2025">2025</time><h3>BYD Scholarship</h3></article>
-            <article className="award-item"><time className="award-year" dateTime="2024">2024</time><h3>First-Class Scholarship</h3></article>
-          </div>
         </section>
 
       </div>

@@ -1,4 +1,4 @@
-export default function SiteNav({ active }: { active: 'home' | 'publications' | 'blogs' }) {
+export default function SiteNav({ active }: { active: 'home' | 'publications' | 'blogs' | 'honors' }) {
   return (
     <nav className="top-nav" aria-label="Primary navigation">
       <a className="wordmark" href="/">Jun-Tao Tang</a>
@@ -6,6 +6,7 @@ export default function SiteNav({ active }: { active: 'home' | 'publications' | 
         <a href="/" aria-current={active === 'home' ? 'page' : undefined}>Home</a>
         <a href="/publications/" aria-current={active === 'publications' ? 'page' : undefined}>Publications</a>
         <a href="/blogs/" aria-current={active === 'blogs' ? 'page' : undefined}>Blogs</a>
+        <a href="/honors/" aria-current={active === 'honors' ? 'page' : undefined}>Honors</a>
       </div>
     </nav>
   );
