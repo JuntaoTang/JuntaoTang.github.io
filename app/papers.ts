@@ -14,7 +14,6 @@ export type Paper = {
   slides?: string;
   preprint?: boolean;
   showEqual?: boolean;
-  contributionNote?: string;
 };
 
 export const papers: Paper[] = [
@@ -26,7 +25,7 @@ export const papers: Paper[] = [
       { name: 'Yu-Cheng Shi' }, { name: 'Han-Jia Ye' }, { name: 'De-Chuan Zhan' }, { name: 'Da-Wei Zhou' },
     ],
     venueFull: 'International Conference on Machine Learning.', venueShort: 'ICML 2026',
-    image: '/assets/papers/same.png', showEqual: true, contributionNote: '* Equal contribution',
+    image: '/assets/papers/same.png', showEqual: true,
     link: 'https://arxiv.org/abs/2602.01990',
     code: 'https://github.com/LAMDA-CL/Prism',
     huggingFace: 'https://huggingface.co/datasets/JuntaoTang/TriGap',
@@ -65,7 +64,7 @@ export const papers: Paper[] = [
     code: 'https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval',
     huggingFace: 'https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo',
     media: 'https://mp.weixin.qq.com/s/2nxe2TrqSe-JKhrp1Oru7A',
-    preprint: true, showEqual: true, contributionNote: '* Equal contribution',
+    preprint: true, showEqual: true,
   },
   {
     label: 'Preprint', status: 'Preprint',

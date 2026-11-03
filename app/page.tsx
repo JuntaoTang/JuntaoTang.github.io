@@ -14,7 +14,7 @@ function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Aut
           <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal && <sup>*</sup>}</span>
         </span>
       ))}
-      {showEqual && <span className="contribution-note"> (* equal contribution)</span>}
+      {showEqual && <strong className="contribution-note"> (co-first author)</strong>}
     </p>
   );
 }
@@ -24,7 +24,7 @@ function VenueLine({ paper, dark = false }: { paper: Paper; dark?: boolean }) {
     <p className={dark ? 'venue-line venue-line-dark' : 'venue-line'}>
       <em>{paper.venueFull} </em>
       <strong><em>{paper.venueShort}</em></strong>
-      {paper.label === 'EMNLP' && <span> · Main Conference</span>}
+      {paper.label === 'EMNLP' && <span> (Main Conference)</span>}
     </p>
   );
 }
@@ -68,7 +68,7 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">
-              I am currently an undergraduate student in the School of Computer Science at <a href="https://www.nju.edu.cn/" target="_blank" rel="noreferrer">Nanjing University</a> and an incoming Ph.D. student at the School of Artificial Intelligence (SAI), <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">Shanghai Jiao Tong University</a>, advised by <a href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the <a href="https://www.lamda.nju.edu.cn/CH.MainPage.ashx" target="_blank" rel="noreferrer">LAMDA</a> Group under the supervision of <a href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>.
+              I am currently an undergraduate student in the School of Computer Science at <a href="https://www.nju.edu.cn/" target="_blank" rel="noreferrer">Nanjing University</a> and an incoming Ph.D. student at the <a href="https://sai.sjtu.edu.cn/" target="_blank" rel="noreferrer">School of Artificial Intelligence</a> (SAI), <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">Shanghai Jiao Tong University</a>, advised by Prof. <a href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Mingda Chen</a>. Previously, I was a research intern in the <a href="https://www.lamda.nju.edu.cn/CH.MainPage.ashx" target="_blank" rel="noreferrer">LAMDA Group</a> under the supervision of Prof. <a href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Da-Wei Zhou</a>.
             </p>
 
             <div className="profile-blocks">
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="feature-card">
             <div className="feature-copy">
               <h3>{cram.title}</h3>
-              <p className="feature-venue">EMNLP 2026 · Main Conference <span className="first-author">First author</span></p>
+              <p className="feature-venue">EMNLP 2026 (Main Conference) <span className="first-author">First author</span></p>
               <p className="feature-summary">We study how a multimodal model can learn new tasks without forgetting old ones or continually adding more parameters. CRAM reuses experts with relevant skills and adds a small amount of capacity only when a new task needs it.</p>
             </div>
             <div className="feature-video"><video controls playsInline preload="none" poster="/assets/media/cram-cover-emnlp.png" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>

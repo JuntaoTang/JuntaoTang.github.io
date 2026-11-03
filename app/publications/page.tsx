@@ -13,7 +13,7 @@ export default function Publications() {
       <div className="page-wrap publications-page">
         <header className="publications-header">
           <h1>Publications</h1>
-          <p className="equal-legend"><sup>*</sup> Equal contribution</p>
+          <p className="equal-legend"><sup>*</sup> <strong>co-first author</strong></p>
         </header>
         <div className="publication-text-list">
           {papers.map((paper) => (
@@ -25,7 +25,7 @@ export default function Publications() {
                 ))}
               </p>
               <p className="publication-text-venue">
-                {paper.preprint ? <>Preprint · <strong>{paper.venueShort}</strong></> : <>{paper.venueFull} <strong>{paper.venueShort}{paper.label === 'EMNLP' && ' · Main Conference'}</strong></>}
+                {paper.preprint ? <>Preprint · <strong>{paper.venueShort}</strong></> : <>{paper.venueFull} <strong>{paper.venueShort}{paper.label === 'EMNLP' && ' (Main Conference)'}</strong></>}
               </p>
               <PaperResources paper={paper} />
             </article>
