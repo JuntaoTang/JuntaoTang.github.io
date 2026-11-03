@@ -23,10 +23,11 @@ h1, h2, h3, p { margin-top: 0; }
 .nav-links a { padding: 9px 19px; font-size: 17px; line-height: 1.3; font-weight: 600; border: 1px solid #c7d3df; border-radius: 4px; background: #fff; }
 .nav-links a:hover { background: #f0f5f9; text-decoration: none; }
 .nav-links a[aria-current="page"] { color: #fff; background: var(--blue-strong); border-color: var(--blue-strong); }
-.hero { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 32px; align-items: stretch; padding: 28px 0 24px; }
-.hero-portrait-wrap { width: 190px; }
-.portrait-frame { position: relative; height: 100%; min-height: 190px; }
-.portrait-frame img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 3px; }
+.hero { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 32px; align-items: stretch; padding: 28px 0 24px; }
+.hero-portrait-wrap { width: 170px; }
+.portrait-frame { position: relative; height: 100%; min-height: 213px; }
+.portrait-frame img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center top; border-radius: 3px; }
+.hero-copy { display: flex; flex-direction: column; justify-content: space-between; }
 h1 { color: var(--blue-strong); font-size: 30px; line-height: 1.2; margin-bottom: 12px; font-weight: 600; }
 h1 em { font-style: normal; }
 .hero-lede { margin-bottom: 13px; line-height: 1.65; }
@@ -105,7 +106,7 @@ h1 em { font-style: normal; }
 .publications-page, .inner-page { padding-top: 26px; padding-bottom: 32px; }
 .publications-header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 9px; }
 .publications-header h1 { font-size: 26px; margin: 0; }
-.equal-legend { font-size: 13px; color: var(--blue-strong); font-weight: 700; margin: 0; white-space: nowrap; }
+.equal-legend { font-family: var(--font-site); font-size: 15px; color: #863434; font-weight: 400; margin: 0; white-space: nowrap; }
 .equal-legend sup, .publication-text-authors sup { color: var(--blue-strong); font-weight: 700; }
 .publication-text-item { padding: 16px 0; border-bottom: 1px solid var(--line); }
 .publication-text-item h2 { font-size: 17px; line-height: 1.4; font-weight: 600; margin: 0 0 5px; }
@@ -113,8 +114,12 @@ h1 em { font-style: normal; }
 .publication-text-venue { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0; }
 .publication-text-venue strong { color: var(--blue-strong); }
 .blog-empty { margin: 18px 0; color: var(--muted); font-size: 14px; }
-.blog-item { display: grid; grid-template-columns: 95px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.blog-item time { font-size: 13px; color: var(--muted); }
+.blog-item { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.blog-item time { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.blog-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 10px; margin-bottom: 3px; }
+.blog-keywords { display: inline-flex; flex-wrap: wrap; gap: 4px 6px; font-size: 12px; line-height: 1.6; font-weight: 400; color: #526478; }
+.blog-keywords > span { padding: 0 6px; background: #f0f3f6; border-radius: 2px; }
+.blog-list .blog-keywords { margin-bottom: 6px; }
 .blog-item h2 { font-size: 17px; margin-bottom: 4px; }
 .blog-item p { font-size: 14px; margin: 0; }
 @media (max-width: 700px) {
@@ -127,7 +132,7 @@ h1 em { font-style: normal; }
   .hero { grid-template-columns: 145px minmax(0, 1fr); gap: 20px; align-items: start; padding-top: 22px; }
   .hero-portrait-wrap { width: 145px; }
   .portrait-frame { height: auto; min-height: 0; }
-  .portrait-frame img { position: static; height: auto; aspect-ratio: 1; }
+  .portrait-frame img { position: static; height: auto; }
   .feature-video { max-width: 640px; }
   .feature-copy h3 { font-size: 16px; }
   .paper-card { grid-template-columns: 160px minmax(0, 1fr); gap: 16px; }

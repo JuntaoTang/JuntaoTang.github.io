@@ -18,6 +18,7 @@
 .article-byline { color: var(--article-muted); font: 14px/1.6 var(--article-sans); margin: 0 0 12px; }
 .article-header h1 { font: 600 clamp(32px, 3.4vw, 43px)/1.14 var(--article-serif); letter-spacing: -.025em; color: #252b31; margin: 0 0 19px; text-wrap: balance; }
 .article-dek { font: 400 19px/1.55 var(--article-sans); color: #5c6570; margin: 0; max-width: 710px; }
+.article-header .blog-keywords { display: flex; margin-top: 15px; font-family: var(--article-sans); font-size: 13px; }
 .article-prose { font: 400 18px/1.78 var(--article-serif); overflow-wrap: break-word; }
 .article-prose p { margin: 0 0 19px; }
 .article-prose .article-opening { font-size: 19px; line-height: 1.76; }

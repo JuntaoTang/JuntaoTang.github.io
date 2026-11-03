@@ -3,7 +3,8 @@ import type { ReactNode } from 'react';
 import { papers, type Author, type Paper } from './papers';
 import SiteNav from './components/site-nav';
 import PaperResources from './components/paper-resources';
-import { selectedPosts } from './blogs/posts';
+import { formatBlogDate, selectedPosts } from './blogs/posts';
+import BlogKeywords from './components/blog-keywords';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -90,7 +91,7 @@ export default function Home() {
           <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
             {selectedPosts.length === 0 ? <p className="blog-empty">No posts yet.</p> : selectedPosts.map((post) => (
               <article className="blog-item" key={post.href}>
-                <time dateTime={post.date}>{post.date}</time>
+                <div className="blog-meta"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><BlogKeywords keywords={post.keywords} /></div>
                 <div><h3><a href={post.href}>{post.title}</a></h3>{post.description && <p>{post.description}</p>}</div>
               </article>
             ))}
@@ -142,7 +143,7 @@ export default function Home() {
         </div>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
-          <div className="section-heading publication-heading"><div className="publication-title-group"><h2 id="publications-title">Selected Publications &amp; preprints</h2><p className="equal-legend"><strong>* denotes co-first author</strong></p></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
+          <div className="section-heading publication-heading"><div className="publication-title-group"><h2 id="publications-title">Selected Publications &amp; preprints</h2><p className="equal-legend">(* Denotes co-first author)</p></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 

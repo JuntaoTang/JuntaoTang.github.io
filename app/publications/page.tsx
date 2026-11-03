@@ -13,7 +13,7 @@ export default function Publications() {
       <div className="page-wrap publications-page">
         <header className="publications-header">
           <h1>Publications</h1>
-          <p className="equal-legend"><strong>* denotes co-first author</strong></p>
+          <p className="equal-legend">(* Denotes co-first author)</p>
         </header>
         <div className="publication-text-list">
           {papers.map((paper) => (

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import SiteNav from '../../components/site-nav';
+import BlogKeywords from '../../components/blog-keywords';
+import { discreteVisualTokenizersPost, formatBlogDate } from '../posts';
 import '../article.css';
 
 const title = 'From Discrete Visual Tokens to Unified Multimodal Models';
@@ -49,9 +51,10 @@ export default function DiscreteVisualTokenizers() {
         <article className="longform" lang="en">
           <header className="article-header">
             <a className="article-back" href="/blogs/">← All blogs</a>
-            <p className="article-byline"><time dateTime="2026-11-04">November 4, 2026</time><span aria-hidden="true"> · </span>Jun-Tao Tang</p>
+            <p className="article-byline"><time dateTime={discreteVisualTokenizersPost.date}>{formatBlogDate(discreteVisualTokenizersPost.date)}</time><span aria-hidden="true"> · </span>Jun-Tao Tang</p>
             <h1>{title}</h1>
             <p className="article-dek">A practical view of visual codebooks, semantic features, and the interface between image understanding and autoregressive generation.</p>
+            <BlogKeywords keywords={discreteVisualTokenizersPost.keywords} />
           </header>
 
           <div className="article-prose">

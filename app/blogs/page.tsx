@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SiteNav from '../components/site-nav';
-import { posts } from './posts';
+import { formatBlogDate, posts } from './posts';
+import BlogKeywords from '../components/blog-keywords';
 
 export const metadata: Metadata = { title: 'Blogs | Jun-Tao Tang' };
 export const dynamic = 'force-static';
@@ -15,8 +16,8 @@ export default function Blogs() {
           <div className="blog-list">
             {posts.map((post) => (
               <article className="blog-item" key={post.href}>
-                <time dateTime={post.date}>{post.date}</time>
-                <div><h2><a href={post.href}>{post.title}</a></h2>{post.description && <p>{post.description}</p>}</div>
+                <time dateTime={post.date}>{formatBlogDate(post.date)}</time>
+                <div><BlogKeywords keywords={post.keywords} /><h2><a href={post.href}>{post.title}</a></h2>{post.description && <p>{post.description}</p>}</div>
               </article>
             ))}
           </div>
