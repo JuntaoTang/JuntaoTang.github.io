@@ -99,7 +99,7 @@ export default function Home() {
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
             <article className="news-item">
               <time dateTime="2026-10">[Oct. 2026]</time>
-              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints of the MLLMs we trained</a>.</p>
+              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints of the MLLMs we trained</a> (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
             </article>
             <article className="news-item">
               <time dateTime="2026-09">[Sep. 2026]</time>
