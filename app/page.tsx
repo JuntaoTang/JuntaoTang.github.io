@@ -82,7 +82,7 @@ export default function Home() {
         <div className="updates-grid">
         <div className="updates-sidebar">
         <section className="blogs-section" aria-labelledby="latest-blogs-title">
-          <div className="section-heading"><h2 id="latest-blogs-title">Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
+          <div className="section-heading"><h2 id="latest-blogs-title">Selected Blogs</h2><a className="arrow-link" href="/blogs/">All posts <span aria-hidden="true">↗</span></a></div>
           <div className="latest-blogs-list" role="region" aria-label="Latest blog posts, scroll for more" tabIndex={0}>
             {posts.length === 0 ? <p className="blog-empty">No posts yet.</p> : posts.map((post) => (
               <article className="blog-item" key={post.href}>
@@ -130,8 +130,9 @@ export default function Home() {
             <div className="feature-copy">
               <h3>{cram.title}</h3>
               <p className="feature-venue">EMNLP 2026 · Main Conference <span className="first-author">First author</span></p>
+              <p className="feature-summary">Centroid-guided routing reuses learned experts, while adaptive ranks allocate capacity for new tasks. Orthogonal updates help preserve prior knowledge during multimodal continual instruction tuning.</p>
             </div>
-            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
+            <div className="feature-video"><video controls playsInline preload="none" poster="/assets/media/cram-cover.svg" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
           </div>
         </section>
         </div>
