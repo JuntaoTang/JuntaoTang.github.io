@@ -97,27 +97,27 @@ export default function Home() {
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
           <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
             <article className="news-item">
-              <time dateTime="2026-11">Nov. 2026</time>
+              <time dateTime="2026-10">[Oct. 2026]</time>
               <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints of the MLLMs we trained</a>.</p>
             </article>
             <article className="news-item">
-              <time dateTime="2026-09">Sep. 2026</time>
+              <time dateTime="2026-09">[Sep. 2026]</time>
               <p>I am serving as a reviewer for ICLR 2027.</p>
             </article>
             <article className="news-item">
-              <time dateTime="2026-08">Aug. 2026</time>
+              <time dateTime="2026-08">[Aug. 2026]</time>
               <p>One paper on continual instruction tuning was accepted to EMNLP 2026.</p>
             </article>
             <article className="news-item">
-              <time dateTime="2026-07">Jul. 2026</time>
+              <time dateTime="2026-07">[Jul. 2026]</time>
               <p>One paper on multi-view multi-label classification was accepted to ACM MM 2026.</p>
             </article>
             <article className="news-item">
-              <time dateTime="2026-05">May. 2026</time>
+              <time dateTime="2026-05">[May. 2026]</time>
               <p>We released <a href="https://github.com/LAMDA-CL/Prism" target="_blank" rel="noreferrer">a toolbox for MCIT</a> (<a href="https://arxiv.org/abs/2605.26110" target="_blank" rel="noreferrer">Technical Report</a>).</p>
             </article>
             <article className="news-item">
-              <time dateTime="2026-05">May. 2026</time>
+              <time dateTime="2026-05">[May. 2026]</time>
               <p>One paper on continual learning was accepted to ICML 2026.</p>
             </article>
           </div>
