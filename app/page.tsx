@@ -62,11 +62,11 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Jun-Tao <em>Tang</em></h1>
             <p className="hero-lede">
-              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the <a className="inline-link" href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">School of Artificial Intelligence (SAI), Shanghai Jiao Tong University</a>, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>. My research interests broadly span multimodal large language models, world models, and generative AI.
+              I am currently an undergraduate student in the School of Computer Science at Nanjing University and an incoming Ph.D. student at the <a className="inline-link" href="https://en.sjtu.edu.cn/" target="_blank" rel="noreferrer">School of Artificial Intelligence (SAI), Shanghai Jiao Tong University</a>, advised by <a className="inline-link" href="https://mingdachen.github.io/" target="_blank" rel="noreferrer">Prof. Mingda Chen</a>. Previously, I was a research intern in the LAMDA Group under the supervision of <a className="inline-link" href="https://www.lamda.nju.edu.cn/zhoudw/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noreferrer">Prof. Da-Wei Zhou</a>.
             </p>
 
             <div className="profile-blocks">
-              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>World Model</span><span>Continual Post-Training</span><span>Multimodal Models</span></div></div>
+              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>Post-training</span><span>World Models</span><span>Multimodal Large Language Models</span></div></div>
             </div>
 
             <div className="hero-actions">
@@ -80,7 +80,11 @@ export default function Home() {
 
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
-          <div className="news-list">
+          <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
+            <article className="news-item">
+              <time dateTime="2026-11">Nov. 2026</time>
+              <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and a <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">model zoo</a> accompanying our evaluation of 210 trained MLLMs.</p>
+            </article>
             <article className="news-item">
               <time dateTime="2026-09">Sep. 2026</time>
               <p>I am serving as a reviewer for ICLR 2027.</p>
@@ -107,11 +111,11 @@ export default function Home() {
         <section className="feature-section" aria-labelledby="feature-title">
           <div className="section-heading"><div><h2 id="feature-title">Featured paper</h2></div></div>
           <div className="feature-card">
-            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
             <div className="feature-copy">
-              <div className="paper-topline"><span className="paper-short">{cram.label}</span><span className="paper-status">{cram.status}</span></div>
               <h3>{cram.title}</h3>
+              <p className="feature-venue">EMNLP 2026 · Main Conference</p>
             </div>
+            <div className="feature-video"><video controls preload="metadata" poster="/assets/papers/cram.png" aria-label="CRAM paper walkthrough"><source src="/assets/media/cram-explainer-v2.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div>
           </div>
         </section>
 
@@ -121,8 +125,9 @@ export default function Home() {
         </section>
 
         <section className="awards-section" aria-labelledby="awards-title">
-          <div className="section-heading"><div><h2 id="awards-title">Scholarships</h2></div></div>
+          <div className="section-heading"><div><h2 id="awards-title">Honors</h2></div></div>
           <div className="awards-list">
+            <article className="award-item"><time className="award-year" dateTime="2026">2026</time><h3>Insta360 Scholarship</h3></article>
             <article className="award-item"><time className="award-year" dateTime="2025">2025</time><h3>BYD Scholarship</h3></article>
             <article className="award-item"><time className="award-year" dateTime="2024">2024</time><h3>First-Class Scholarship</h3></article>
           </div>
