@@ -8,6 +8,9 @@ export type Paper = {
   venueShort: string;
   image: string;
   link?: string;
+  code?: string;
+  huggingFace?: string;
+  media?: string;
   slides?: string;
   preprint?: boolean;
   showEqual?: boolean;
@@ -24,6 +27,10 @@ export const papers: Paper[] = [
     ],
     venueFull: 'International Conference on Machine Learning.', venueShort: 'ICML 2026',
     image: '/assets/papers/same.png', showEqual: true, contributionNote: '* Equal contribution',
+    link: 'https://arxiv.org/abs/2602.01990',
+    code: 'https://github.com/LAMDA-CL/Prism',
+    huggingFace: 'https://huggingface.co/datasets/JuntaoTang/TriGap',
+    media: 'https://mp.weixin.qq.com/s/uJqE_5Acw9war3laNVFGcw',
   },
   {
     label: 'EMNLP', status: 'Main Conference paper',
@@ -31,6 +38,8 @@ export const papers: Paper[] = [
     authors: [{ name: 'Jun-Tao Tang', me: true }, { name: 'Zhen-Hao Xie' }, { name: 'Yu-Cheng Shi' }, { name: 'Da-Wei Zhou' }],
     venueFull: 'Conference on Empirical Methods in Natural Language Processing.', venueShort: 'EMNLP 2026',
     image: '/assets/papers/cram.png',
+    link: 'https://arxiv.org/abs/2606.02502',
+    code: 'https://github.com/LAMDA-CL/EMNLP2026-CRAM',
     slides: '/assets/slides/cram-emnlp2026.pdf',
   },
   {
@@ -52,6 +61,9 @@ export const papers: Paper[] = [
     ],
     venueFull: 'Preprint ·', venueShort: 'arXiv:2610.05413',
     image: '/assets/papers/ravel-figure7.png', link: 'https://arxiv.org/abs/2610.05413',
+    code: 'https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval',
+    huggingFace: 'https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo',
+    media: 'https://mp.weixin.qq.com/s/2nxe2TrqSe-JKhrp1Oru7A',
     preprint: true, showEqual: true, contributionNote: '* Equal contribution',
   },
   {
@@ -60,6 +72,8 @@ export const papers: Paper[] = [
     authors: [{ name: 'Jun-Tao Tang', me: true }, { name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Da-Wei Zhou' }],
     venueFull: 'Preprint ·', venueShort: 'arXiv:2605.26110', image: '/assets/papers/prism.png',
     link: 'https://arxiv.org/abs/2605.26110', preprint: true,
+    code: 'https://github.com/LAMDA-CL/Prism',
+    huggingFace: 'https://huggingface.co/datasets/JuntaoTang/TriGap',
   },
   {
     label: 'Preprint', status: 'Preprint',
@@ -67,5 +81,6 @@ export const papers: Paper[] = [
     authors: [{ name: 'Yu-Cheng Shi' }, { name: 'Zhen-Hao Xie' }, { name: 'Jun-Tao Tang', me: true }, { name: 'Da-Wei Zhou' }],
     venueFull: 'Preprint ·', venueShort: 'arXiv:2606.02576', image: '/assets/papers/protoada.png',
     link: 'https://arxiv.org/abs/2606.02576', preprint: true,
+    code: 'https://github.com/LAMDA-CL/Prism',
   },
 ];

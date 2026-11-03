@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { papers } from '../papers';
 import SiteNav from '../components/site-nav';
+import PaperResources from '../components/paper-resources';
 
 export const metadata: Metadata = { title: 'Publications | Jun-Tao Tang' };
 export const dynamic = 'force-static';
@@ -14,10 +15,13 @@ export default function Publications() {
           <h1>Publications</h1>
           <p className="equal-legend"><sup>*</sup> Equal contribution</p>
         </header>
-        <div className="publication-text-list">
-          {papers.map((paper) => (
+        {[{ title: 'Conference Papers', preprint: false }, { title: 'Preprints', preprint: true }].map((group) => (
+          <section className="publication-group" key={group.title}>
+            <h2 className="publication-group-title">{group.title}</h2>
+            <div className="publication-text-list">
+          {papers.filter((paper) => Boolean(paper.preprint) === group.preprint).map((paper) => (
             <article className="publication-text-item" key={paper.title}>
-              <h2>{paper.title}</h2>
+              <h3>{paper.link ? <a href={paper.link} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
               <p className="publication-text-authors">
                 {paper.authors.map((author, index) => (
                   <span key={author.name}>{index > 0 && ', '}<span className={author.me ? 'author-me' : undefined}>{author.name}{author.equal && <sup>*</sup>}</span></span>
@@ -26,10 +30,12 @@ export default function Publications() {
               <p className="publication-text-venue">
                 {paper.preprint ? <>Preprint · <strong>{paper.venueShort}</strong></> : <>{paper.venueFull} <strong>{paper.venueShort}{paper.label === 'EMNLP' && ' · Main Conference'}</strong></>}
               </p>
-              {paper.slides && <p className="paper-resources"><a href={paper.slides} target="_blank" rel="noreferrer">Slides (PDF) ↗</a></p>}
+              <PaperResources paper={paper} />
             </article>
           ))}
-        </div>
+            </div>
+          </section>
+        ))}
       </div>
     </main>
   );

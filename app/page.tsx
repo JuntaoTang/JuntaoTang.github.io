@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import { papers, type Author, type Paper } from './papers';
 import SiteNav from './components/site-nav';
+import PaperResources from './components/paper-resources';
 import { posts } from './blogs/posts';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
@@ -10,7 +11,7 @@ function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Aut
       {authors.map((author, index) => (
         <span key={author.name}>
           {index > 0 && ', '}
-          <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal ? '*' : ''}</span>
+          <span className={author.me ? 'author-me' : undefined}>{author.name}{showEqual && author.equal && <sup>*</sup>}</span>
         </span>
       ))}
     </p>
@@ -22,6 +23,7 @@ function VenueLine({ paper, dark = false }: { paper: Paper; dark?: boolean }) {
     <p className={dark ? 'venue-line venue-line-dark' : 'venue-line'}>
       <em>{paper.venueFull} </em>
       <strong><em>{paper.venueShort}</em></strong>
+      {paper.label === 'EMNLP' && <span> · Main Conference</span>}
     </p>
   );
 }
@@ -29,13 +31,15 @@ function VenueLine({ paper, dark = false }: { paper: Paper; dark?: boolean }) {
 function PaperCard({ paper }: { paper: Paper }) {
   return (
     <article className="paper-card">
-      <div className="paper-media"><img src={paper.image} alt={`${paper.label} paper overview`} loading="lazy" /></div>
+      <div className="paper-media">
+        <span className="paper-badge">{paper.label}</span>
+        <img src={paper.image} alt={`Overview of ${paper.title}`} loading="lazy" />
+      </div>
       <div className="paper-body">
-        <div className="paper-topline"><span className={`paper-short${paper.label === 'ACM MM' ? ' paper-short-acm' : ''}`}>{paper.label}</span><span className="paper-status">{paper.status}</span>{paper.link && <a className="paper-link" href={paper.link} target="_blank" rel="noreferrer">arXiv ↗</a>}</div>
-        <h3>{paper.title}</h3>
+        <h3>{paper.link ? <a href={paper.link} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
         <AuthorLine authors={paper.authors} showEqual={paper.showEqual} />
         <VenueLine paper={paper} />
-        {paper.slides && <p className="paper-resources"><a href={paper.slides} target="_blank" rel="noreferrer">Slides (PDF) ↗</a></p>}
+        <PaperResources paper={paper} />
         {paper.contributionNote && <p className="contribution-note">{paper.contributionNote}</p>}
       </div>
     </article>
@@ -57,7 +61,7 @@ export default function Home() {
         <section className="hero" id="research">
           <div className="hero-portrait-wrap">
             <div className="portrait-frame">
-              <img src="/assets/avatar-v2.png" alt="Portrait of Jun-Tao Tang" />
+              <img src="/assets/avatar-v3.png" alt="Portrait of Jun-Tao Tang" />
             </div>
           </div>
 
@@ -68,7 +72,7 @@ export default function Home() {
             </p>
 
             <div className="profile-blocks">
-              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>Post-training</span><span>World Models</span><span>Multimodal Large Language Models</span></div></div>
+              <div className="profile-block"><span>Current interests</span><div className="interest-list"><span>Post-training</span><span>Agentic RL</span><span>World Models (WAM)</span><span>MLLMs</span></div></div>
             </div>
 
             <div className="hero-actions">
@@ -140,7 +144,12 @@ export default function Home() {
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
           <div className="section-heading publication-heading"><div><h2 id="publications-title">Selected Publications &amp; preprints</h2></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
-          <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
+          {[{ title: 'Conference Papers', preprint: false }, { title: 'Preprints', preprint: true }].map((group) => (
+            <div className="publication-group" key={group.title}>
+              <h3 className="publication-group-title">{group.title}</h3>
+              <div className="paper-list">{papers.filter((paper) => Boolean(paper.preprint) === group.preprint).map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
+            </div>
+          ))}
         </section>
 
       </div>
