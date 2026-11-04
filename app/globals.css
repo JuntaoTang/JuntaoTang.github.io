@@ -48,7 +48,7 @@ h1 em { font-style: normal; }
 .updates-sidebar .news-list { height: 120px; max-height: 120px; }
 .updates-sidebar .blogs-section { display: flex; flex: 1; flex-direction: column; min-height: 0; }
 .updates-sidebar .latest-blogs-list { flex: 1; min-height: 180px; max-height: 260px; }
-.updates-sidebar .blog-item { grid-template-columns: 1fr; gap: 3px; padding: 10px 0; }
+.updates-sidebar .blog-item { grid-template-columns: 1fr; gap: 2px; padding: 6px 0; }
 .updates-grid .news-item { display: block; padding: 7px 0; border-bottom: 1px solid var(--line); }
 .updates-grid .news-item:first-child { padding-top: 0; }
 .updates-grid .news-item time { display: inline; margin-right: 6px; font-size: 12px; }
@@ -79,7 +79,8 @@ h1 em { font-style: normal; }
 .latest-blogs-list { min-height: 54px; }
 .latest-blogs-list .blog-empty { margin: 10px 0; }
 .latest-blogs-list .blog-item:first-child { padding-top: 4px; }
-.latest-blogs-list h3 { margin: 0 0 4px; font-size: 16px; }
+.latest-blogs-list .blog-meta { margin-bottom: 0; }
+.latest-blogs-list h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
 .honors-list { padding-top: 20px; gap: 15px; }
 .paper-resources { display: flex; flex-wrap: wrap; gap: 4px 13px; margin-top: 6px; font-size: 14px; line-height: 1.6; }
 .paper-resources a { white-space: nowrap; }
