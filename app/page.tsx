@@ -5,6 +5,7 @@ import SiteNav from './components/site-nav';
 import PaperResources from './components/paper-resources';
 import { formatBlogDate, selectedPosts } from './blogs/posts';
 import BlogKeywords from './components/blog-keywords';
+import NewsList from './components/news-list';
 
 function AuthorLine({ authors, dark = false, showEqual = false }: { authors: Author[]; dark?: boolean; showEqual?: boolean }) {
   return (
@@ -100,7 +101,7 @@ export default function Home() {
 
         <section className="news-section" id="news" aria-labelledby="news-title">
           <div className="section-heading"><div><h2 id="news-title">News</h2></div></div>
-          <div className="news-list" role="region" aria-label="News updates, scroll for earlier news" tabIndex={0}>
+          <NewsList>
             <article className="news-item">
               <time dateTime="2026-10">[Oct. 2026]</time>
               <p>We open-source <a href="https://github.com/JuntaoTang/MLLM-VisionEncoder-Eval" target="_blank" rel="noreferrer">MLLM-VisionEncoder-Eval</a>, a unified framework for evaluating and selecting vision encoders for MLLMs, and release <a href="https://huggingface.co/336labs/VisionEncoder-to-MLLM-ModelZoo" target="_blank" rel="noreferrer">checkpoints</a> from <strong>more than 200 MLLMs</strong> we trained (<a href="https://arxiv.org/abs/2610.05413" target="_blank" rel="noreferrer">Technical Report</a>).</p>
@@ -125,7 +126,7 @@ export default function Home() {
               <time dateTime="2026-05">[May. 2026]</time>
               <p>One paper on continual learning was accepted to ICML 2026.</p>
             </article>
-          </div>
+          </NewsList>
         </section>
         </div>
 

@@ -45,12 +45,14 @@ h1 em { font-style: normal; }
 .updates-grid > * { min-width: 0; }
 .updates-sidebar { display: flex; flex-direction: column; gap: 20px; }
 .updates-sidebar .news-section { margin-top: auto; }
-.updates-sidebar .news-list { height: 120px; max-height: 120px; }
+.updates-sidebar .news-list { position: relative; height: auto; max-height: none; }
+/* The visible news set determines height; archived items extend only the scroll area. */
+.news-archive { position: absolute; top: 100%; left: 0; right: 4px; }
 .updates-sidebar .blogs-section { display: flex; flex: 1; flex-direction: column; min-height: 0; }
 .updates-sidebar .latest-blogs-list { flex: 1; min-height: 180px; max-height: 260px; }
 .updates-sidebar .blog-item { grid-template-columns: 1fr; gap: 2px; padding: 6px 0; }
 .updates-grid .news-item { display: block; padding: 7px 0; border-bottom: 1px solid var(--line); }
-.updates-grid .news-item:first-child { padding-top: 0; }
+.updates-grid .news-preview > .news-item:first-child { padding-top: 0; }
 .updates-grid .news-item time { display: inline; margin-right: 6px; font-size: 12px; }
 .updates-grid .news-item p { display: inline; font-size: 14px; line-height: 1.6; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 6px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
@@ -127,6 +129,7 @@ h1 em { font-style: normal; }
   .updates-grid { grid-template-columns: 1fr; gap: 22px; }
   .updates-sidebar { gap: 18px; }
   .updates-sidebar .news-list { height: 120px; max-height: 120px; }
+  .news-archive { position: static; }
   .top-nav { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 0 14px; }
   .nav-links { width: 100%; }
   .nav-links a { flex: 1; text-align: center; font-size: 16px; padding: 9px 12px; }
