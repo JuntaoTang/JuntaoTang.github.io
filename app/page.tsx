@@ -143,7 +143,7 @@ export default function Home() {
         </div>
 
         <section className="publication-section" id="publications" aria-labelledby="publications-title">
-          <div className="section-heading publication-heading"><div className="publication-title-group"><h2 id="publications-title">Selected Publications &amp; preprints</h2><p className="equal-legend">(* Denotes co-first author)</p></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
+          <div className="section-heading publication-heading"><div className="publication-title-group"><h2 id="publications-title">Selected Publications &amp; Preprints</h2><p className="equal-legend">(* Denotes co-first author)</p></div><a className="arrow-link" href="/publications/">All publications <span aria-hidden="true">↗</span></a></div>
           <div className="paper-list">{papers.map((paper) => <PaperCard key={paper.title} paper={paper} />)}</div>
         </section>
 
