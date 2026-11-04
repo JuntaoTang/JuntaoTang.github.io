@@ -24,7 +24,7 @@ export const selfSupervisedPostTrainingPost: BlogPost = {
 
 export const visualPretrainingPost: BlogPost = {
   title: 'When Visual Prediction Competes with Language Learning',
-  date: '2026-11-04',
+  date: '2026-10-10',
   href: '/blogs/visual-pretraining-and-language-learning/',
   description: 'A discussion of visual pretraining, Chameleon’s optimization analysis, and what we observed when adding visual prediction to an MLLM training pipeline.',
   keywords: ['visual-pretraining', 'multimodal-learning', 'optimization'],
@@ -33,8 +33,8 @@ export const visualPretrainingPost: BlogPost = {
 
 // Add published articles here, newest first. Dates use YYYY-MM-DD.
 export const posts: BlogPost[] = [
-  visualPretrainingPost,
   selfSupervisedPostTrainingPost,
+  visualPretrainingPost,
   discreteVisualTokenizersPost,
 ];
 
