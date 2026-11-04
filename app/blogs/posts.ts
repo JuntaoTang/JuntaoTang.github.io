@@ -17,7 +17,7 @@ export const selfSupervisedPostTrainingPost: BlogPost = {
   title: 'Self-Supervised Post-Training for Stronger MLLMs',
   date: '2026-11-04',
   href: '/blogs/self-supervised-post-training/',
-  description: 'What visual puzzles teach MLLMs, why the gains can shrink with stronger models, and how task design shapes transfer.',
+  description: 'A review of visual puzzles and self-supervised rewards for multimodal post-training, covering transfer, model scale, and reasoning behavior.',
   keywords: ['self-supervised-learning', 'multimodal-rl', 'visual-reasoning'],
   selected: true,
 };

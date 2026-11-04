@@ -16,10 +16,7 @@ const contents = [
   ['verifiable-vision', 'A verifier without image annotations'],
   ['reference-points', 'Four useful reference points'],
   ['effective-difficulty', 'Difficulty relative to the model'],
-  ['reward-and-transfer', 'What should the reward value?'],
-  ['reasoning-and-answer', 'Reasoning, answers, and output order'],
-  ['data-and-preservation', 'Data selection and capability preservation'],
-  ['experiments', 'An experiment sequence'],
+  ['reasoning-and-answer', 'Reasoning and final answers'],
 ] as const;
 
 function Cite({ n }: { n: number }) {
@@ -45,13 +42,12 @@ export default function SelfSupervisedPostTraining() {
             <a className="article-back" href="/blogs/">← All blogs</a>
             <p className="article-byline"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span aria-hidden="true"> · </span>Jun-Tao Tang</p>
             <h1>{post.title}</h1>
-            <p className="article-dek">What visual puzzles teach, why their gains can shrink, and how to design rewards that transfer.</p>
+            <p className="article-dek">Visual puzzles, verifiable rewards, and what existing studies reveal about transfer, model scale, and reasoning.</p>
             <BlogKeywords keywords={post.keywords} />
           </header>
           <div className="article-prose">
             <p className="article-opening">Cut an image into patches, shuffle them, and ask a multimodal model to recover their arrangement. A few lines of code can generate the question and check the answer. This makes an old visual learning task an attractive source of rewards for post-training MLLMs.</p>
-            <p>The more interesting question begins after the model learns to solve the puzzle: <strong>what has improved, and does that improvement still matter for a stronger base model?</strong> Recovering an arrangement can involve recognizing object parts, following contours, reasoning about spatial relations, or exploiting the way the puzzle was constructed. Each route can raise the puzzle score while changing downstream behavior differently.</p>
-            <p>I am interested in making this kind of self-supervised post-training useful beyond a fixed model and a fixed puzzle distribution. These notes connect the existing recipes to three design questions: where the learning signal comes from, which visual decisions it rewards, and how the resulting updates interact with the model’s existing abilities.</p>
+            <p>The papers covered here study which visual tasks transfer, how rewards support learning, and how the gains change with model scale. Together they raise a useful question: <strong>what does solving a visual puzzle teach an MLLM?</strong></p>
 
             <section id="verifiable-vision">
               <h2>1. A verifier without image annotations</h2>
@@ -83,13 +79,13 @@ export default function SelfSupervisedPostTraining() {
                 </tbody>
               </table></div>
               <p>Reward details matter. Visual Jigsaw gives full credit to an exact solution, discounted placement credit to a valid partial solution, and zero accuracy reward to an invalid permutation. It also uses a format bonus of 0.2, with malformed responses receiving neither format nor accuracy reward.<Cite n={4} /> This separates three things a training curve can otherwise mix together: producing a parseable response, producing a legal arrangement, and solving it correctly.</p>
-              <p>The comparison with SFT is most useful at the level of behavior. SFT optimizes supplied responses; RL changes the relative probability of sampled responses according to the verifier. Jigsaw-R1 reports better transfer with RL in its setting and finds that an SFT cold start can impair later RL optimization.<Cite n={3} /> For an experiment, keep the puzzle distribution and compute accounting visible, then compare both puzzle competence and downstream changes.</p>
+              <p>The comparison with SFT is most useful at the level of behavior. SFT optimizes supplied responses; RL changes the relative probability of sampled responses according to the verifier. Jigsaw-R1 reports better transfer with RL in its setting and finds that an SFT cold start can impair later RL optimization.<Cite n={3} /></p>
             </section>
 
             <section id="effective-difficulty">
               <h2>3. Difficulty relative to the model</h2>
               <p>A fixed task can become a poor teacher as the student improves. SSL4RL reports smaller downstream gains when moving from a 3B to a 7B model; increasing the jigsaw and position grids to 5 × 5 did not yield a significant further improvement in that study.<Cite n={5} /> This motivates a distinction between making a puzzle larger and making it educationally useful.</p>
-              <p>More patches increase the number of candidate arrangements. They also increase visual-token usage, context length, and output length. A harder score can therefore reflect a larger bookkeeping burden, smaller visible details, or a more ambiguous image. The difficulty relevant to transfer is the visual decision the model must learn.</p>
+              <p>Task combinations introduce another complication. SSL4RL finds that simply combining its four rewards does not outperform the best individual setups.<Cite n={5} /> The effects of distinct pretext tasks therefore do not add up automatically.</p>
               <h3>Reward contrast and solution diversity</h3>
               <p>In group-relative optimization, the reward-driven advantage compares a response with other responses to the same prompt. When all sampled responses receive the same reward, this comparison supplies no preference between them. The reward-relative policy term then has no signal from that group; auxiliary terms, when present, are separate.<Cite n={2} /></p>
               <figure className="ssl-reward-figure">
@@ -101,58 +97,13 @@ export default function SelfSupervisedPostTraining() {
                 <figcaption><span>Figure 2.</span> Illustrative reward groups for a four-tile puzzle scored by the fraction of correct placements. The bars show candidate rewards, not measured training results. All-failure groups have the same lack of reward contrast as all-success groups.</figcaption>
               </figure>
               <p>The reverse distinction also matters: different explanations can end in the same permutation. Textual diversity then overstates exploration of the solution space. PuzzleCraft explicitly tracks solution-space dispersion alongside difficulty to downweight collapsed groups.<Cite n={6} /> Reward variance and arrangement diversity describe different aspects of a rollout batch.</p>
-              <p>I would use both to build a model-dependent curriculum. Track exact success, partial-credit dispersion, valid-output rate, and unique arrangements within each task family. Sample tasks where the model can make progress, then check whether those updates improve the target abilities. A group with varied rewards is an optimization opportunity; its downstream value comes from what separates the better and worse solutions.</p>
-            </section>
-
-            <section id="reward-and-transfer">
-              <h2>4. What should the reward value?</h2>
-              <p>Consider two mistakes. Swapping two nearly identical sky patches changes a strict permutation score. Swapping a person’s hand with a distant object can break an important spatial relationship. A uniform placement reward assigns the same local penalty to both, although the evidence and semantic consequences differ.</p>
-              <p>This suggests an ambiguity-aware reward as a design direction. Keep exact placement as an anchor, and use an additional measure to distinguish visually interchangeable regions from clear structural errors. The immediate experiment is simple: collect errors, identify repeated or low-information regions, and compare how much each error matters for the reconstructed scene and downstream questions.</p>
-              <p>A frozen vision encoder could provide one similarity signal between patches. Its invariances would then become part of the reward: an encoder that misses text or fine spatial distinctions might forgive precisely the errors we want the MLLM to notice. Use such a score together with strict validity and exact-placement measurements, and inspect the examples whose ranking changes.</p>
-              <h3>Test the shortcut directly</h3>
-              <p>Boundary continuity is a natural cue for reassembly. It can also dominate training while contributing little to a downstream question about object interactions. Perturb a narrow border around each patch while preserving its interior, and compare performance with the original puzzle. Matched perturbations away from borders help separate reliance on boundary cues from sensitivity to visual corruption in general.</p>
-              <p>Pair this intervention with semantic tests: relative position, object identity, part–whole relations, and questions requiring evidence across patches. The useful result is a connection between a training-induced behavior and the downstream examples it changes.</p>
-              <p>Reward composition deserves the same care. SSL4RL finds that simply combining its four rewards does not outperform the best individual setups.<Cite n={5} /> Before combining objectives, measure their scales, learning curves, and effects on the same capability slices. A curriculum can schedule distinct objectives; dynamic weighting can adjust their influence. Both become easier to interpret once their individual effects are known.</p>
             </section>
 
             <section id="reasoning-and-answer">
-              <h2>5. Reasoning, answers, and output order</h2>
+              <h2>4. Reasoning and final answers</h2>
               <p>Three measurements belong on separate axes: whether the final answer is correct, whether the written rationale supports it, and whether generating that rationale improves the answer. Jigsaw-R1 observes that answer accuracy can rise while the rationale becomes less consistent with it.<Cite n={3} /> An outcome reward directly scores the submitted arrangement, so this divergence fits the optimization target.</p>
-              <p>Evaluate the base and post-trained model under both direct-answer and reasoning-enabled prompts, holding decoding settings and answer extraction consistent. Report accuracy and token cost in each mode. Visual Jigsaw uses short-answer evaluation for its vision-centric comparisons.<Cite n={4} /> That choice is an evaluation protocol; the useful question for a new model is which mode best supports each task.</p>
-              <p>PuzzleCraft monitors reasoning–answer consistency and explores consistency-aware optimization.<Cite n={6} /> Such a diagnostic checks agreement in the visible response. Testing the causal role of the rationale requires interventions, such as changing or truncating an intermediate commitment and measuring the effect on the final answer.</p>
-              <h3>Does raster order constrain the solution process?</h3>
-              <p>A conventional answer lists patches from left to right, then top to bottom. A solver might instead identify a distinctive corner, place an obvious object, and resolve the remaining regions afterward. Serialization order and discovery order can be different.</p>
-              <p>The experiment I want to run compares a raster-ordered list with an unordered set of <code>(position, patch)</code> assignments. The verifier converts either representation into the same final grid, checks one-to-one coverage, and scores the arrangement identically. Match token budgets and parsing constraints, then compare success, revisions, and rationale–answer agreement.</p>
-              <p>A gain from unordered output would point toward an interaction between serialization and the solving policy. To investigate the mechanism, annotate when each placement is first proposed, how often it changes, and where the final answer disagrees with those commitments. This turns an intuition about output order into an observable training behavior.</p>
-            </section>
-
-            <section id="data-and-preservation">
-              <h2>6. Data selection and capability preservation</h2>
-              <p>In preliminary runs, I found that changing the source image dataset changed the downstream gains substantially at a similar training cost. That makes the image distribution a central part of the task. Natural scenes, diagrams, documents, and repeated textures offer different cues even under an identical shuffle generator.</p>
-              <p>Source-domain effects already appear in Jigsaw-R1’s dataset comparison.<Cite n={3} /> A systematic study can go further by crossing source image type with evaluation ability. Compare natural images, charts, and documents at matched sample and rollout budgets; log effective resolution, valid-output rate, partial accuracy, and active-group frequency. Keep evaluation images and their near-duplicates out of the source pools.</p>
-              <p>The resulting matrix can distinguish two explanations. One source may transfer because it resembles the target domain. Another may be useful across domains because it repeatedly demands a reusable operation, such as binding text to a region or integrating several spatial constraints. Examine question-level gains and regressions to see which account fits.</p>
-              <h3>Learning a new policy while keeping useful behavior</h3>
-              <p>Puzzle training can also change how the model answers ordinary questions: how much it scans, which details it emphasizes, and how it formats a response. An average benchmark gain can combine improvements in one ability with regressions in another.</p>
-              <p>This is where a continual-learning perspective becomes useful. Compare unrestricted updates with reference-policy regularization, replay or distillation on representative non-puzzle inputs, and selective updates to modules or parameter directions. The objective is to retain useful response behavior while learning visual operations that transfer.</p>
-              <p>The KL trade-off is concrete. Visual Jigsaw and PuzzleCraft remove the reference KL term in their reported setups, while SSL4RL retains one.<Cite n={4} /><Cite n={5} /><Cite n={6} /> Sweep the constraint strength and record a joint view of puzzle progress, downstream improvements, regressions, and response cost. LoRA can reduce the trainable footprint for larger-model experiments; whether it preserves the relevant abilities remains an empirical comparison.</p>
-            </section>
-
-            <section id="experiments">
-              <h2>7. An experiment sequence</h2>
-              <p>I would start by measuring the current training dynamics before adding a more elaborate objective. A compact sequence can separate a lack of learning signal from learning the wrong thing:</p>
-              <div className="article-table-wrap"><table className="debug-table">
-                <thead><tr><th>Experiment</th><th>Comparison</th><th>What to measure</th></tr></thead>
-                <tbody>
-                  <tr><td>Establish the baseline</td><td>Base model vs. puzzle post-training, across model strengths</td><td>Puzzle accuracy, reward dispersion, valid outputs, and capability-level downstream changes.</td></tr>
-                  <tr><td>Test the source distribution</td><td>Natural images, charts, documents, and matched mixtures</td><td>Transfer by target domain, active groups, resolution, and rollout cost.</td></tr>
-                  <tr><td>Probe the cues</td><td>Original patches vs. border and interior perturbations</td><td>Sensitivity to local continuity and performance on semantic relations.</td></tr>
-                  <tr><td>Change serialization</td><td>Raster lists vs. unordered position–patch assignments</td><td>Placement commitments, revisions, final accuracy, and rationale consistency.</td></tr>
-                  <tr><td>Adapt the task</td><td>Fixed difficulty vs. model-dependent sampling</td><td>Reward contrast, arrangement diversity, transfer, and cost per useful rollout.</td></tr>
-                  <tr><td>Control policy change</td><td>Unrestricted updates vs. KL, replay/distillation, or selective updates</td><td>The trade-off between newly gained skills and retained non-puzzle behavior.</td></tr>
-                </tbody>
-              </table></div>
-              <p>Use multiple seeds for the comparisons that determine the next design choice, and inspect individual downstream examples alongside aggregate scores. Log the sampled groups so that a stalled curve can be traced to easy prompts, impossible prompts, invalid answers, collapsed arrangements, or an uninformative reward.</p>
-              <p>The goal is a self-supervised task distribution that keeps teaching useful visual decisions as the base model improves. Better puzzle scores are one measurement along that path. The stronger result is to identify which decisions were learned, where they transfer, and how to keep supplying those decisions at the next model scale.</p>
+              <p>Evaluation choices differ across these studies. Visual Jigsaw uses short-answer evaluation for its vision-centric comparisons.<Cite n={4} /> Jigsaw-R1 finds that models can learn and generalize with or without explicit reasoning, with direct answering often working better for the open-source models it studies.<Cite n={3} /></p>
+              <p>PuzzleCraft monitors reasoning–answer consistency and explores consistency-aware optimization.<Cite n={6} /> These results make the inference mode and the agreement between rationale and answer part of the empirical picture, alongside puzzle accuracy and downstream transfer.</p>
             </section>
 
             <section id="references" className="article-references">
