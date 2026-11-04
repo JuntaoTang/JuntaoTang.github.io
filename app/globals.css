@@ -98,7 +98,7 @@ h1 em { font-style: normal; }
 .venue-line { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 0; }
 .venue-line em { font-style: normal; }
 .venue-line strong { color: var(--blue-strong); }
-.authors sup, .publication-text-authors sup { color: #863434; font-size: 16px; font-weight: 800; line-height: 0; vertical-align: super; margin-left: 2px; }
+.authors sup, .publication-text-authors sup { color: #863434; font-size: 16px; font-weight: 800; line-height: 0; vertical-align: baseline; position: relative; top: -.25em; margin-left: 2px; }
 .awards-list { display: grid; gap: 7px; }
 .award-item { display: flex; align-items: baseline; gap: 22px; }
 .award-year { width: 46px; color: var(--muted); font-size: 14px; }
